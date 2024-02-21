@@ -1,36 +1,4 @@
 <body>
-    <main>
-        <section class="about">
-            <div class="container">
-                <button routerLink="/create">New Room</button>
-                <br><br>
-            </div>
-            <table class="table table-stripped">
-                <thead>
-                    <tr>
-                        <th>Room ID</th>
-                        <th>Room Name</th>
-                        <th>Start Date</th>
-                        <th>End Date</th>
-                        <th>Final Complexity</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let room of rooms">
-                        <td>{{room.roomId}}</td>
-                        <td>{{room.roomName}}</td>
-                        <td>{{room.startDate}}</td>
-                        <td>{{room.endDate}}</td>
-                        <td>{{room.finalComplexity}}</td>
-                        <td>{{room.description}}</td>
-                        <td>{{room.status}}</td>
-                        <td><button (click)="updateRoom(room.roomId)">Modifier</button><button (click)="deleteRoom(room.roomId)">Supprimer</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
+    <br><br>
+    <app-table-room></app-table-room>
 </body>

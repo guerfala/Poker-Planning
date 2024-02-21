@@ -10,6 +10,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UpdateRoomComponent } from './update-room/update-room.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { TableRoomComponent } from './table-room/table-room.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -17,14 +24,22 @@ import { UpdateRoomComponent } from './update-room/update-room.component';
     RoomComponent,
     CreateRoomComponent,
     HomeComponent,
-    UpdateRoomComponent
+    UpdateRoomComponent,
+    TableRoomComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
