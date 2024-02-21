@@ -15,6 +15,7 @@
                         <th>Final Complexity</th>
                         <th>Description</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                         <td>{{room.finalComplexity}}</td>
                         <td>{{room.description}}</td>
                         <td>{{room.status}}</td>
+                        <td><button (click)="updateRoom(room.roomId)">Modifier</button><button (click)="deleteRoom(room.roomId)">Supprimer</button></td>
                     </tr>
                 </tbody>
             </table>

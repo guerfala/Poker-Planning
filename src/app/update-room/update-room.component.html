@@ -1,0 +1,38 @@
+<body>
+    <main>
+        <section class="about">
+            <div class="col-md-6 offset-md-3">
+                <h1>Create Room</h1>
+                <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>Room Name</label>
+                    <input type="text" class="form-control" id="roomName"
+                        [(ngModel)]="room.roomName" name="roomName">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control" id="roomDescription"
+                        [(ngModel)]="room.description" name="roomDescription">
+                </div>
+
+                <div class="form-group">
+                    <label>Start Date</label>
+                    <input type="datetime" class="form-control" id="startDate"
+                        [(ngModel)]="room.startDate" name="startDate">
+                </div>
+
+                <div class="form-group">
+                    <label>End Date</label>
+                    <input type="datetime" class="form-control" id="endDate"
+                        [(ngModel)]="room.endDate" name="endDate">
+                </div>
+
+                <br>
+                <button type="submit">Save</button>
+
+                </form>
+            </div>
+        </section>
+    </main>
+</body>

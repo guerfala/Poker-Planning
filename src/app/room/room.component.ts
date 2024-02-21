@@ -24,4 +24,14 @@ export class RoomComponent {
     })
   }
 
+  updateRoom(id: number){
+    this.router.navigate(['updateRoom', id]);
+  }
+
+  deleteRoom(id:number){
+    this.roomService.deleteRoom(id).subscribe(data => {
+      this.getRooms();
+    })
+  }
+
 }

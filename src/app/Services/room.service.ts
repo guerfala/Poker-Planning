@@ -19,5 +19,17 @@ export class RoomService {
   createRoom(room: Room):Observable<Object>{
     return this.httpClient.post(`${this.baseURL+"AddRoom"}`, room);
   }
+
+  getRoomById(id: number): Observable<Room>{
+    return this.httpClient.get<Room>(`${this.baseURL+"GetRoomById"}/${id}`);
+  }
+
+  updateRoom(id: number, room: Room): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL +"UpdateRoom"}/${id}`, room);
+  }
+
+  deleteRoom(id: number): Observable<Object>{
+    return this.httpClient.delete( `${this.baseURL + "DeleteRoom"}/${id}` );
+  }
   
 }

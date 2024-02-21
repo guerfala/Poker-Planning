@@ -9,13 +9,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { UpdateRoomComponent } from './update-room/update-room.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoomComponent,
     CreateRoomComponent,
-    HomeComponent
+    HomeComponent,
+    UpdateRoomComponent
   ],
   imports: [
     BrowserModule,
