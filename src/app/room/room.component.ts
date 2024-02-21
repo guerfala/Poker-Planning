@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { RoomService } from '../Services/room.service';
+import { Room } from '../Models/room';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-room',
@@ -6,5 +9,19 @@ import { Component } from '@angular/core';
   styleUrl: './room.component.css'
 })
 export class RoomComponent {
+
+  rooms!: Room[];
+
+  constructor(private roomService: RoomService, private router: Router){}
+
+  ngOnInit(): void{
+    this.getRooms();
+  }
+
+  private getRooms(){
+    this.roomService.getRoomList().subscribe(data =>{
+      this.rooms = data;
+    })
+  }
 
 }
