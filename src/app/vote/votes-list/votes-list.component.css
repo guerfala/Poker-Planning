@@ -1,0 +1,66 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set main container to 100% of viewport height */
+}
+
+/* .votes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.votes-table th, .votes-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.votes-table th {
+    background-color: #f2f2f2;
+}
+
+.votes-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.votes-table tr:hover {
+    background-color: #ddd;
+} */
+
+/* Add custom styles to the table */
+.mat-table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #f3f3f3; /* Set background color */
+  }
+  
+  /* Style table header cells */
+  .mat-header-cell {
+    border: 1px solid #ddd; /* Add border */
+    padding: 8px;
+    text-align: left;
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+  }
+  
+  /* Style table data cells */
+  .mat-cell {
+    border: 1px solid #ddd; /* Add border */
+    padding: 8px;
+  }
+  
+  /* Style table rows */
+  .mat-row {
+    border-bottom: 1px solid #ddd; /* Add bottom border to rows */
+  }
+  
+  /* Style table pagination */
+  .mat-paginator {
+    margin-top: 20px;
+  }
+  
+button.mat-icon-button {
+    border-radius: 50%; /* Make the button circular */
+    background-color: red; /* Set the background color */
+}

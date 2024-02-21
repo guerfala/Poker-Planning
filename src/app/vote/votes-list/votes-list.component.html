@@ -1,0 +1,40 @@
+<app-header></app-header>
+<main>
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+  
+        <!-- Vote ID Column -->
+        <ng-container matColumnDef="voteId">
+          <th mat-header-cell *matHeaderCellDef> Vote ID </th>
+          <td mat-cell *matCellDef="let vote"> {{ vote.voteId }} </td>
+        </ng-container>
+  
+        <!-- Card Value Column -->
+        <ng-container matColumnDef="cardValue">
+          <th mat-header-cell *matHeaderCellDef> Card Value </th>
+          <td mat-cell *matCellDef="let vote"> {{ vote.cardValue }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="voteTimestamp">
+          <th mat-header-cell *matHeaderCellDef> Timestamp </th>
+          <td mat-cell *matCellDef="let vote"> {{ vote.voteTimestamp }} </td>
+        </ng-container>
+  
+        <!-- Delete Button Column -->
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let vote">
+            <button mat-icon-button color="warn" (click)="deleteVote(vote.voteId)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <!-- Define header and row templates -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let vote; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </main>
+  
+<app-footer></app-footer>

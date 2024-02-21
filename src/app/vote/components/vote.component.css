@@ -10,7 +10,7 @@ main {
 .voting-container {
     text-align: center;
     margin-top: 20px;
-    background-image: url('../../assets/img/pokertable.jpg'); /* Replace 'background-image.jpg' with your image file name */
+    background-image: url('../../../assets/img/pokertable.jpg'); /* Replace 'background-image.jpg' with your image file name */
     background-size: cover; /* Ensure the image covers the entire container */
     background-position: center; /* Center the image within the container */
     height: 100vh; /* Make container full height of viewport */
@@ -70,6 +70,17 @@ main {
 .validate-button:hover {
     background-color: #830174; /* Darker shade of yellow on hover */
 }
+
+.confidence-slider {
+    display: flex;
+    align-items: center;
+}
+  
+.confidence-slider mat-slider {
+    flex: 1;
+    margin-right: 10px;
+}
+  
 
 app-header {
     z-index: 1000;
