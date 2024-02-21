@@ -7,7 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RoomComponent } from './room/room.component';
+import { VoteComponent } from './vote/vote.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { TableRoomComponent } from './table-room/table-room.component';
@@ -19,6 +21,7 @@ import { TableRoomComponent } from './table-room/table-room.component';
     FooterComponent,
     HomeComponent,
     RoomComponent,
+    VoteComponent,
     TableRoomComponent
   ],
   imports: [
@@ -26,7 +29,8 @@ import { TableRoomComponent } from './table-room/table-room.component';
     AppRoutingModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration()

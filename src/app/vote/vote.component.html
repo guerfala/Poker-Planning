@@ -1,0 +1,19 @@
+<app-header></app-header>
+    <main>
+        <div class="voting-container">
+            <h2>Choose a card to vote with</h2>
+            <div class="cards-container">
+              <button class="card-button" 
+                      *ngFor="let card of votingCards"
+                      [class.selected]="selectedCard === card" 
+                      (click)="selectCard(card)">
+                {{ card }}
+              </button>
+            </div>
+            <div class="phrase-container">
+              <p>{{ votingPhrase }}</p>
+            </div>
+            <button class="validate-button" (click)="validateVote()">Validate</button>
+          </div>
+    </main>
+<app-footer></app-footer>
