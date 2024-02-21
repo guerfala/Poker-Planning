@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-// import { provideHttpClient } from '@ngneat/helipopper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { TableRoomComponent } from './table-room/table-room.component';
 import { VotesListComponent } from './vote/votes-list/votes-list.component';
@@ -42,9 +42,11 @@ import { VotesListComponent } from './vote/votes-list/votes-list.component';
     MatButtonModule,
     MatIconModule,
     MatSliderModule,
+    MatSelectModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

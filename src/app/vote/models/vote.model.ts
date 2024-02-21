@@ -1,7 +1,7 @@
 export enum ConfidenceLevel {
-  LOW = 'LOW',
-  MEDIUM = 'MEDIUM',
-  HIGH = 'HIGH',
+  LOW = 0,
+  MEDIUM = 1,
+  HIGH = 2
 }
 export interface Vote {
     voteId: number;

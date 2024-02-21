@@ -13,9 +13,12 @@
         <div class="phrase-container">
           <p>{{ votingPhrase }}</p>
         </div>
-        <button class="validate-button" (click)="validateVote()">Validate</button>
+        <select [(ngModel)]="selectedConfidenceLevel">
+          <option *ngFor="let level of confidenceLevels" [value]="level.value">{{ level.label }}</option>
+        </select>
+        <button class="validate-button" (click)="validateVote()">
+          <img src="../../../assets/icons/tick.png" alt="Validate" width="50" height="50"></button>
         <!-- In your template -->
-        <!-- <mat-slider thumbLabel [min]="0" [max]="confidenceLevelIndices.length - 1" [step]="1" [(ngModel)]="selectedConfidenceLevelIndex"></mat-slider> -->
 
 
       </div>

@@ -10,7 +10,7 @@ import { VoteService } from '../services/vote.service';
 })
 export class VotesListComponent implements OnInit {
   dataSource: MatTableDataSource<Vote> = new MatTableDataSource<Vote>([]); // Data source for the table
-  displayedColumns: string[] = ['voteId', 'cardValue','voteTimestamp', 'delete']; // Displayed columns
+  displayedColumns: string[] = ['voteId', 'cardValue','voteTimestamp','confidenceLevel', 'delete']; // Displayed columns
 
   constructor(private voteService: VoteService) { }
 

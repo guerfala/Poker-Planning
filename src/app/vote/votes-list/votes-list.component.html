@@ -19,6 +19,11 @@
           <th mat-header-cell *matHeaderCellDef> Timestamp </th>
           <td mat-cell *matCellDef="let vote"> {{ vote.voteTimestamp }} </td>
         </ng-container>
+        
+        <ng-container matColumnDef="confidenceLevel">
+          <th mat-header-cell *matHeaderCellDef> Confidence Level </th>
+          <td mat-cell *matCellDef="let vote"> {{ vote.confidenceLevel }} </td>
+        </ng-container>
   
         <!-- Delete Button Column -->
         <ng-container matColumnDef="delete">

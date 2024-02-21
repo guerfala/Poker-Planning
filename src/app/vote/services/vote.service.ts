@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Vote } from '../models/vote.model';
+import { ConfidenceLevel } from '../models/vote.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,9 @@ export class VoteService {
   constructor(private http: HttpClient) { }
 
   
-  createVote(cardValue: number): Observable<any> {
+  createVote(cardValue: number, confidenceLevel: ConfidenceLevel): Observable<any> {
     const url = `${this.baseUrl}/add`; // Construct the complete URL for adding a vote
-    return this.http.post<any>(url, { cardValue });
+    return this.http.post<any>(url, { cardValue, confidenceLevel });
   }
   
   getAllVotes(): Observable<Vote[]> {
