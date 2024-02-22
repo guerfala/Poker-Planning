@@ -1,0 +1,40 @@
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="packId">
+      <th mat-header-cell *matHeaderCellDef> packId </th>
+      <td mat-cell *matCellDef="let element"> {{element.packId}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="nbCards">
+      <th mat-header-cell *matHeaderCellDef> nbCards </th>
+      <td mat-cell *matCellDef="let element"> {{element.nbCards}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="packDescription">
+      <th mat-header-cell *matHeaderCellDef> packDescription </th>
+      <td mat-cell *matCellDef="let element"> {{element.packDescription}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="packName">
+      <th mat-header-cell *matHeaderCellDef> packName </th>
+      <td mat-cell *matCellDef="let element"> {{element.packName}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> action </th>
+      <td mat-cell *matCellDef="let element"> <button mat-stroked-button color="accent"  (click) = "onEdit(element.packId)" >edit</button> <button mat-stroked-button color="warn" (click) = "onDelete(element.packId)" >delete</button></td>
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+</div>
+

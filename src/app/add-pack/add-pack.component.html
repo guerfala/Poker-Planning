@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="col-md-6 offset-md-3" style="margin-top: 100px;">
+  <h3> Create pack </h3>
+  <form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+      <label> packName</label>
+      <input type="text" class ="form-control" id = "packName"
+             [(ngModel)] = "packname" name = "packName">
+    </div>
+
+    <div class="form-group">
+      <label>packDescription</label>
+      <input type="text" class ="form-control" id = "packDescription"
+             [(ngModel)] = "description" name = "packDescription">
+    </div>
+
+    <div class="form-group">
+      <label> nbCards</label>
+      <input type="number" class ="form-control" id = "nbCards"
+             [(ngModel)] = "nbcards" name = "nbCards">
+    </div>
+
+    <button class = "btn btn-success" type ="submit">Submit</button>
+
+  </form>
+</div>
