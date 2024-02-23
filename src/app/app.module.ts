@@ -10,6 +10,11 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TestComponent } from './test/test.component';
+import { ProfilDetailsComponent } from './Models/profil-details/profil-details.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserTableComponent } from './user-table/user-table.component';
+
 
 @NgModule({
   declarations: [
@@ -17,16 +22,22 @@ import { TestComponent } from './test/test.component';
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    TestComponent
+    TestComponent,
+    ProfilDetailsComponent,
+    UserDetailsComponent,
+    UserTableComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule ,
+    HttpClientModule,
     RouterModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
