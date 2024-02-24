@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Room } from '../Models/room';
 import { RoomService } from '../Services/room.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table-room',
@@ -11,10 +12,11 @@ import { MatTableDataSource } from '@angular/material/table';
 export class TableRoomComponent {
 
   roomList!: Room[];
+  rooms!: Room[];
   dataSource:any;
-  displayedColumns = ['roomId','roomName','description'];
+  displayedColumns = ['roomId','roomName','description','actions'];
 
-  constructor(private roomService: RoomService){
+  constructor(private roomService: RoomService, private router: Router){
     this.roomService.getRoomList()
     .subscribe(res => {
       this.roomList = res;
@@ -29,6 +31,22 @@ export class TableRoomComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  getRooms(){
+    this.roomService.getRoomList().subscribe(data =>{
+      this.rooms = data;
+    })
+  }
+
+  editRoom(id: number) {
+    this.router.navigate(['updateRoom', id]);
+  }
+
+  deleteRoom(id: number) {
+    this.roomService.deleteRoom(id).subscribe(data => {
+      this.getRooms();
+    })
   }
 
 }

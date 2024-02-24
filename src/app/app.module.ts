@@ -17,6 +17,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { TableRoomComponent } from './table-room/table-room.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MatInputModule } from '@angular/material/input';
     NoopAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

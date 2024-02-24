@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'create', component: CreateRoomComponent},
   {path: 'home', component: HomeComponent},
   {path: 'updateRoom/:id', component: UpdateRoomComponent},
+  {path: '', component: HomeComponent},
 ];
 
 @NgModule({

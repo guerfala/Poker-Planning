@@ -18,7 +18,7 @@ export class RoomComponent {
     this.getRooms();
   }
 
-  private getRooms(){
+  getRooms(){
     this.roomService.getRoomList().subscribe(data =>{
       this.rooms = data;
     })
