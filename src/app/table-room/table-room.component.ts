@@ -49,4 +49,8 @@ export class TableRoomComponent {
     })
   }
 
+  joinRoom(id:number){
+    this.router.navigate(['room', id]);
+  }
+
 }

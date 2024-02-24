@@ -22,17 +22,17 @@ export class CreateRoomComponent {
       console.log(data);
     },
     error => console.log(error));
-    this.router.navigate(['/room']);
+    this.router.navigate(['/rooms']);
   }
 
   goToRoomList(){
-    this.router.navigate(['/room']);
+    this.router.navigate(['/rooms']);
   }
 
   onSubmit(){
     console.log(this.room);
     this.saveRoom();
-    this.router.navigate(['/room']);
+    this.router.navigate(['/rooms']);
   }
 
 }

@@ -34,7 +34,7 @@ export class UpdateRoomComponent {
     }
 
     goToRoomList(){
-      this.router.navigate(['/room']);
+      this.router.navigate(['/rooms']);
     }
 
 }
