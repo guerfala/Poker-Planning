@@ -10,10 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TestComponent } from './test/test.component';
-import { ProfilDetailsComponent } from './Models/profil-details/profil-details.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { UserDetailsComponent } from './user-details/user-details.component';
-import { UserTableComponent } from './user-table/user-table.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+
 
 
 @NgModule({
@@ -23,9 +23,9 @@ import { UserTableComponent } from './user-table/user-table.component';
     HomeComponent,
     LoginComponent,
     TestComponent,
-    ProfilDetailsComponent,
     UserDetailsComponent,
-    UserTableComponent,
+
+
 
   ],
   imports: [

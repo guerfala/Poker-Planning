@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, Observer } from 'rxjs';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +18,9 @@ export class UserService {
   
   public login(loginData: any) {
     return this.httpclient.post(this.PathOfApi + "/api/auth/authenticate", loginData , { headers: this.requestHeader })
+  }
+
+  public  getUserList(): Observable<User[]> {
+    return this.httpclient.get<User[]>(this.PathOfApi + "/api/auth/ShowallUsers" ,  { headers: this.requestHeader })
   }
 }
