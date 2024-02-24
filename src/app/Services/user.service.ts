@@ -21,6 +21,6 @@ export class UserService {
   }
 
   public  getUserList(): Observable<User[]> {
-    return this.httpclient.get<User[]>(this.PathOfApi + "/api/auth/ShowallUsers" ,  { headers: this.requestHeader })
+    return this.httpclient.get<User[]>(this.PathOfApi + "/api/auth/ShowallUsers" )
   }
 }
