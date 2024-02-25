@@ -17,6 +17,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 
 
@@ -30,6 +31,7 @@ import { MatInputModule } from '@angular/material/input';
     LoginComponent,
     TestComponent,
     UserDetailsComponent,
+    UpdateUserComponent,
 
 
 

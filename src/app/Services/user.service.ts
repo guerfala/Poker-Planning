@@ -23,4 +23,18 @@ export class UserService {
   public  getUserList(): Observable<User[]> {
     return this.httpclient.get<User[]>(this.PathOfApi + "/api/auth/ShowallUsers" )
   }
+
+  public DeleteProfil(userId: number): Observable<object> {
+    return this.httpclient.delete(this.PathOfApi + `/api/auth/DeleteUser/${userId}` , { headers: this.requestHeader });
+  }
+  
+public UpdateUser(userId:number, user:User):  Observable<object> {
+   
+   return this.httpclient.put(this.PathOfApi + `/api/auth/UpdateUser/${userId}`, { headers: this.requestHeader } );
+}
+
+
+getUserById(userId: number): Observable<User>{
+  return this.httpclient.get<User>(this.PathOfApi + `/api/auth/GetUserById/${userId}`, { headers: this.requestHeader } );
+}
 }
