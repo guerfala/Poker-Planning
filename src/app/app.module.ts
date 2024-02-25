@@ -5,9 +5,9 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { HeaderComponent } from './frontoffice/header/header.component';
-// import { FooterComponent } from './frontoffice/footer/footer.component';
-// import { HomeComponent } from './frontoffice/home/home.component';
+import { HeaderComponent } from './frontoffice/header/header.component';
+import { FooterComponent } from './frontoffice/footer/footer.component';
+import { HomeComponent } from './frontoffice/home/home.component';
 // import { RoomComponent } from './room/room.component';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
 // import { TableRoomComponent } from './table-room/table-room.component';
+import { VoteComponent } from './vote/components/vote.component';
 import { VotesListComponent } from './vote/votes-list/votes-list.component';
 import { ConfirmationComponent } from './vote/confirmation/confirmation.component';
 // import { VotebackComponent } from './backoffice/voteback/voteback.component';
@@ -30,10 +31,11 @@ import { ConfirmationComponent } from './vote/confirmation/confirmation.componen
 @NgModule({
   declarations: [
     AppComponent,
-    // HeaderComponent,
-    // FooterComponent,
-    // HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
     // RoomComponent,
+    VoteComponent,
     // TableRoomComponent,
     VotesListComponent,
     ConfirmationComponent,

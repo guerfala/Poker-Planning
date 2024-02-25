@@ -1,0 +1,23 @@
+<app-header></app-header>
+<main>
+    <div class="voting-container">
+        <h2>Choose a card to vote with</h2>
+        <div class="cards-container">
+          <button class="card-button" 
+                  *ngFor="let card of votingCards"
+                  [class.selected]="selectedCard === card" 
+                  (click)="selectCard(card)">
+            {{ card }}
+          </button>
+        </div>
+        <div class="phrase-container">
+          <p>{{ votingPhrase }}</p>
+        </div>
+        <select [(ngModel)]="selectedConfidenceLevel">
+          <option *ngFor="let level of confidenceLevels" [value]="level.value">{{ level.label }}</option>
+        </select>
+        <button class="validate-button" (click)="validateVote()">
+          <img src="../../../assets/icons/tick.png" alt="Validate" width="50" height="50"></button>
+      </div>
+</main>
+<app-footer></app-footer>
