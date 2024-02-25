@@ -35,19 +35,22 @@ export class UserDetailsComponent {
     }
   }
 
+getUsers() {
+  this.userService.getUserList().subscribe(data => {
+    this.users = data;
+  });
+}
 
-  getUsers(){
-    this.userService.getUserList().subscribe(data =>{
-      this.users = data;
-    })
-  }
 
+deleteUser(id: number) {
+  this.userService.DeleteProfil(id).subscribe(() => {
+    // Refresh the user list after deletion
+    this.getUsers();
+    // Navigate after user is deleted and list is refreshed
+    window.location.reload();
+  });
+}
 
-  deleteUser(id: number) {
-    this.userService.DeleteProfil(id).subscribe(data => {
-      this.getUsers();
-    })
-  }
 
 
   editUser(id: number) {

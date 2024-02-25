@@ -31,11 +31,34 @@ export class UpdateUserComponent {
 
 
   onSubmit(){
-    this.userservice.UpdateUser(this.userId, this.user)
+
+    const updateUser: User = {
+      // Include only the attributes you want to update
+      userId: this.userId,
+      // Add more attributes as needed
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
+      password: this.user.password,
+      email: this.user.email,
+      image: this.user.image,
+      gender: this.user.gender, 
+      role: this.user.role,
+      skillRate: this.user.skillRate
+    };
+    this.userservice.UpdateUser(this.userId, updateUser)
+   
       .subscribe(data =>{
         this.userlist();
       },error => console.log(error));
+      console.log(this.userId);
+      console.log(this.user);
   }
+
+  
+
+
+
+
   userlist() {
     this.router.navigate(['/userDetails'])
   }

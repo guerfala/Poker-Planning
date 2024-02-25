@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, throwError } from 'rxjs';
 import { User } from '../Models/user';
 
 @Injectable({
@@ -28,11 +28,10 @@ export class UserService {
     return this.httpclient.delete(this.PathOfApi + `/api/auth/DeleteUser/${userId}` , { headers: this.requestHeader });
   }
   
-public UpdateUser(userId:number, user:User):  Observable<object> {
+  public UpdateUser(userId:number, user:User):  Observable<object> {
    
-   return this.httpclient.put(this.PathOfApi + `/api/auth/UpdateUser/${userId}`, { headers: this.requestHeader } );
-}
-
+    return this.httpclient.put(this.PathOfApi + `/api/auth/UpdateUser/${userId}`,user , { headers: this.requestHeader } );
+  }
 
 getUserById(userId: number): Observable<User>{
   return this.httpclient.get<User>(this.PathOfApi + `/api/auth/GetUserById/${userId}`, { headers: this.requestHeader } );
