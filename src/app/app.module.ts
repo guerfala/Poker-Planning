@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './frontoffice/header/header.component';
 import { FooterComponent } from './frontoffice/footer/footer.component';
 import { HomeComponent } from './frontoffice/home/home.component';
-// import { RoomComponent } from './room/room.component';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,15 +17,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
-// import { TableRoomComponent } from './table-room/table-room.component';
 import { VoteComponent } from './vote/components/vote.component';
 import { VotesListComponent } from './vote/votes-list/votes-list.component';
 import { ConfirmationComponent } from './vote/confirmation/confirmation.component';
-// import { VotebackComponent } from './backoffice/voteback/voteback.component';
-// import { FooterBackComponent } from './backoffice/components/footer/footerback.component';
-// import { NavbarComponent } from './backoffice/components/navbar/navbar.component';
-// import { SidebarComponent } from './backoffice/components/sidebar/sidebar.component';
-
+import { ProceedComponent } from './vote/proceed/proceed.component';
 
 @NgModule({
   declarations: [
@@ -34,15 +28,10 @@ import { ConfirmationComponent } from './vote/confirmation/confirmation.componen
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    // RoomComponent,
     VoteComponent,
-    // TableRoomComponent,
     VotesListComponent,
     ConfirmationComponent,
-    // VotebackComponent,
-    // FooterBackComponent,
-    // NavbarComponent,
-    // SidebarComponent
+    ProceedComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +51,6 @@ import { ConfirmationComponent } from './vote/confirmation/confirmation.componen
   ],
   providers: [
     provideClientHydration()
-    // provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
