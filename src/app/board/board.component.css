@@ -1,0 +1,66 @@
+.example-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(150vh);
+  }
+  
+  .example-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%; /* Adjust the width as per your requirement */
+  }
+  
+  .example-list, .example-column {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    min-width: 250px;
+  }
+  
+  .example-box {
+    padding: 15px 20px; /* Increased horizontal padding for better spacing */
+    border-radius: 8px; /* Increased border radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    background-color: #ffffff; /* Set background color to white */
+    transition: box-shadow 0.3s ease; /* Smooth transition for box shadow */
+    font-size: 16px;
+    width: 100%; /* Ensure cards take up full width */
+    margin-bottom: 20px; /* Increase margin between cards */
+  }
+  
+  .example-box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+  
+  .example-box:last-child {
+    margin-bottom: 0; /* Remove bottom margin for the last card */
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  

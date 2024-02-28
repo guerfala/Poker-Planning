@@ -1,0 +1,12 @@
+<!-- column.component.html -->
+
+<div class="column">
+    <div class="column-header">
+      {{ columnName }}
+    </div>
+    <div class="column-body">
+      <!-- Loop through cards and display them -->
+      <app-card *ngFor="let card of cards" [card]="card"></app-card>
+    </div>
+  </div>
+  

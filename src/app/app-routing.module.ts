@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RoomComponent } from './room/room.component';
 import { HomeComponent } from './home/home.component';
-import { VoteComponent } from './vote/vote.component';
+import { TaskComponent } from './Task/components/task.component';
+import { UpdateTaskComponent } from './Task/update-Task/update-task.component';
+import { SprintComponent } from './Sprint/components/sprint.component';
+import { UpdateSprintComponent } from './Sprint/update-Sprint/update-sprint.component';
+import { CreateSprintComponent } from './Sprint/create-sprint/create-sprint.component';
+import { CardComponent } from './card/card.component';
+import { BoardComponent } from './board/board.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'room', component: RoomComponent},
-  {path: '', component: VoteComponent},
-  
+  {path: 'task', component: TaskComponent},
+  { path: 'updateTask/:id', component: UpdateTaskComponent },
+  { path: 'sprint', component: SprintComponent },
+  { path: 'updateSprint/:id', component: UpdateSprintComponent },
+  { path: 'createSprint/:id', component: CreateSprintComponent },
+  { path: 'board', component: BoardComponent },
+
 ];
 
 @NgModule({
