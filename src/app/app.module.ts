@@ -28,6 +28,7 @@ import { UpdateRoomComponent } from './room-poker/update-room/update-room.compon
 import { TableRoomComponent } from './room-poker/table-room/table-room.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ChatComponent } from './room-poker/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatInputModule } from '@angular/material/input';
     HomeComponent,
     UpdateRoomComponent,
     TableRoomComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

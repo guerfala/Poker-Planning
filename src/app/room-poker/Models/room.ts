@@ -6,4 +6,5 @@ export class Room {
     finalComplexity!: number;
     description!: string;
     status!: number;
+    userId!: number;
 }

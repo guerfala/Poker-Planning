@@ -7,6 +7,7 @@ import { UpdateRoomComponent } from './room-poker/update-room/update-room.compon
 import { TableRoomComponent } from './room-poker/table-room/table-room.component';
 import { VoteComponent } from './vote/components/vote.component';
 import { VotesListComponent } from './vote/votes-list/votes-list.component';
+import { ChatComponent } from './room-poker/chat/chat.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'v', component: VoteComponent},
   {path: 'votes', component: VotesListComponent},
+  {path: 'chat/:user', component: ChatComponent},
 ];
 
 @NgModule({
