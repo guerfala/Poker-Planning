@@ -1,0 +1,42 @@
+/* body {
+    margin: 0; 
+    padding: 0; 
+    background-image: url('../../../assets/img/pokertable.jpg'); 
+    background-size: 90%; 
+    background-position: center; 
+    height: 100vh; 
+    margin-bottom: 10px; 
+} */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Set main container to fill the body height */
+}
+
+.user-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.start-button {
+    display: inline-block;
+    padding: 16px 30px;
+    margin-top: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0f8f;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.start-button:hover {
+    background-color: #830174; /* Darker shade of yellow on hover */
+}
+

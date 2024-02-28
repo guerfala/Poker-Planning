@@ -1,0 +1,11 @@
+<body>
+  <main>
+    <!-- User selection buttons -->
+    <div class="user-buttons">
+      <button *ngIf="!isUserCompleted(1)" (click)="selectUser(1)">User 1</button>
+      <button *ngIf="!isUserCompleted(2)" (click)="selectUser(2)">User 2</button>
+      <button *ngIf="!isUserCompleted(3)" (click)="selectUser(3)">User 3</button>
+    </div>
+  </main>
+</body>
+  

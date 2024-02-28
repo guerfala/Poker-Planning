@@ -1,23 +1,39 @@
-<app-header></app-header>
-<main>
-    <div class="voting-container">
-        <h2>Choose a card to vote with</h2>
-        <div class="cards-container">
-          <button class="card-button" 
-                  *ngFor="let card of votingCards"
-                  [class.selected]="selectedCard === card" 
-                  (click)="selectCard(card)">
-            {{ card }}
-          </button>
-        </div>
-        <div class="phrase-container">
-          <p>{{ votingPhrase }}</p>
-        </div>
-        <select [(ngModel)]="selectedConfidenceLevel">
-          <option *ngFor="let level of confidenceLevels" [value]="level.value">{{ level.label }}</option>
-        </select>
-        <button class="validate-button" (click)="validateVote()">
-          <img src="../../../assets/icons/tick.png" alt="Validate" width="50" height="50"></button>
+<body>
+  <main>
+    <!-- Voting container -->
+    <div *ngIf="isUserSelected" class="voting-container">
+      <!-- Voting phrase -->
+      <div class="phrase-container">
+        <p>{{ votingPhrase }}</p>
       </div>
-</main>
-<app-footer></app-footer>
+      
+      <!-- Task -->
+      <div class="phrase-container">
+        <p class="task-text">{{ tasks[currentTaskIndex] }}</p>
+      </div>
+      
+      <!-- Voting cards -->
+      <div class="cards-container">
+        <button class="card-button" 
+                *ngFor="let card of votingCards"
+                [class.selected]="selectedCard === card" 
+                (click)="selectCard(card)">
+          {{ card }}
+        </button>
+      </div>
+        
+      <!-- Confidence level selection -->
+      <div class="confidence-level-container">
+        <select [(ngModel)]="selectedConfidenceLevel">
+          <option value="" disabled selected>Choose confidence level</option> <!-- Placeholder option -->
+          <option *ngFor="let level of confidenceLevels" [value]="level.value" (click)="selectConfidenceLevel(level.value)">{{ level.label }}</option>
+        </select>
+      </div>
+      
+      <!-- Validate button -->
+      <button class="validate-button" (click)="validateVote()">
+        <img src="../../../assets/icons/tick.png" alt="Validate" width="30" height="30">
+      </button>
+    </div>
+  </main>
+</body>

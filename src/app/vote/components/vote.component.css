@@ -1,35 +1,51 @@
 /* styles.css */
 
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url('../../../assets/img/pokertable.jpg'); 
+    background-size: 90%; /* Ensure the image covers the entire viewport */
+    background-position: center; /* Center the image horizontally and position it at the top */
+    height: 100vh; /* Set the body height to fill the viewport */
+    margin-bottom: 10px; /* Remove top margin to bring the background image closer to the header */
+}
+
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Set main container to 100% of viewport height */
-  }
+    height: 100%; /* Set main container to fill the body height */
+}
+
+.user-buttons {
+    display: flex;
+    justify-content: space-around;
+}
 
 .voting-container {
     text-align: center;
-    margin-top: 20px;
-    background-image: url('../../../assets/img/pokertable.jpg'); /* Replace 'background-image.jpg' with your image file name */
-    background-size: cover; /* Ensure the image covers the entire container */
-    background-position: center; /* Center the image within the container */
-    height: 100vh; /* Make container full height of viewport */
+    margin-top: 10px;
     width: 70%;
     display: flex; /* Use flexbox layout */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
     flex-direction: column;
     /* Add any additional styling as needed */
-  }
+}
+
 
 .voting-container h2,
 .voting-container p {
     color: #ffffff; /* Set text color to white */
 }
 
+.cards-container {
+    margin-top: 1px; /* Adjust margin as needed */
+}
 .card-button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 20px 20px;
     margin: 5px;
     font-size: 16px;
     font-weight: bold;
@@ -56,7 +72,7 @@ main {
     display: inline-block;
     padding: 5px 10px;
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 10px;
     font-weight: bold;
     text-align: center;
     border: none;
@@ -79,6 +95,16 @@ main {
 .confidence-slider mat-slider {
     flex: 1;
     margin-right: 10px;
+}
+
+
+.confidence-level-container {
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.task-text {
+    font-size: 28px; 
+    margin-top: 10px;/* Adjust the font size as needed */
 }
   
 

@@ -1,0 +1,23 @@
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url('../../../assets/img/pokertable.jpg'); 
+    background-size: 90%; /* Ensure the image covers the entire viewport */
+    background-position: center; /* Center the image horizontally and position it at the top */
+    height: 100vh; /* Set the body height to fill the viewport */
+    margin-bottom: 10px; /* Remove top margin to bring the background image closer to the header */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Set main container to fill the body height */
+}
+
+.user-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+

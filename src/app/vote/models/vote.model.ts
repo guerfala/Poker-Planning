@@ -8,5 +8,6 @@ export interface Vote {
     cardValue: number;
     voteTimestamp: string ;
     confidenceLevel: ConfidenceLevel;
+    userId: number;
 }
   
