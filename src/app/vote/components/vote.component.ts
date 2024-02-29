@@ -4,6 +4,7 @@ import { VoteService } from '../services/vote.service';
 import { ConfidenceLevel } from '../models/vote.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ProceedComponent } from '../proceed/proceed.component';
+import { Task } from '../models/vote.model';
 
 @Component({
   selector: 'app-vote',
@@ -12,11 +13,7 @@ import { ProceedComponent } from '../proceed/proceed.component';
 })
 export class VoteComponent implements OnInit {
   
-  tasks: string[] = [
-    'Task 1: Improve user authentication',
-    'Task 2: Enhance search functionality',
-    'Task 3: Optimize database performance'
-  ];
+  tasks: Task[] = []; // Update the type of the tasks array
   currentTaskIndex: number = 0;
   
   votingCards: number[] = [1, 2, 3, 4, 5]; // Example array of voting cards
@@ -36,7 +33,6 @@ export class VoteComponent implements OnInit {
 
   completedUsers: number[] = [];
 
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -52,6 +48,10 @@ export class VoteComponent implements OnInit {
         this.selectedUser = Number(userId);
         this.isUserSelected = true;
       }
+    });
+    
+    this.voteService.getAllTasks().subscribe(tasks => {
+      this.tasks = tasks;
     });
   }
 
@@ -74,7 +74,8 @@ export class VoteComponent implements OnInit {
         if (result) {
           if (this.selectedCard !== null && this.selectedConfidenceLevel !== null) {
             if (this.selectedUser !== null) { // Check if selectedUser is not null
-              this.voteService.createVote(this.selectedCard, this.selectedConfidenceLevel).subscribe(
+              const taskId = this.tasks[this.currentTaskIndex].taskId; // Get the taskId of the current task
+              this.voteService.createVote(this.selectedCard, this.selectedConfidenceLevel, taskId).subscribe(
                 () => {
                   console.log('Vote created successfully');
                   this.voteService.markVoteCompleted(this.selectedUser); // Mark vote as completed
@@ -99,23 +100,21 @@ export class VoteComponent implements OnInit {
     }
   }
   
-  
- moveToNextTask(): void {
-  if (this.currentTaskIndex < this.tasks.length - 1) {
-    this.currentTaskIndex++;
-    this.selectedCard = null;
-    this.selectedConfidenceLevel = null;
-  } else {
-    // Check if all users have completed voting
-    const allUsersCompleted = this.voteService.allUsersCompleted();
-    if (allUsersCompleted) {
-      // Navigate to the result route
-      this.router.navigate(['/vresult']);
+  moveToNextTask(): void {
+    if (this.currentTaskIndex < this.tasks.length - 1) {
+      this.currentTaskIndex++;
+      this.selectedCard = null;
+      this.selectedConfidenceLevel = null;
     } else {
-      // If not all users have completed voting, navigate back to the user selection page
-      this.router.navigate(['/vuser']);
+      // Check if all users have completed voting
+      const allUsersCompleted = this.voteService.allUsersCompleted();
+      if (allUsersCompleted) {
+        // Navigate to the result route
+        this.router.navigate(['/vresult']);
+      } else {
+        // If not all users have completed voting, navigate back to the user selection page
+        this.router.navigate(['/vuser']);
+      }
     }
   }
-}
-  
 }

@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'updateRoom/:id', component: UpdateRoomComponent},
   {path: 'room/:id', component: RoomComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'vote/:userId', component: VoteComponent},
+  {path: 'vote/:userId/:taskId', component: VoteComponent},
   {path: 'votes', component: VotesListComponent},
   {path: 'vuser', component: VoteCompletedComponent},
   {path: 'vstart', component: StartComponent},

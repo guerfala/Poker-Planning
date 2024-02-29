@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Vote } from '../models/vote.model';
 import { ConfidenceLevel } from '../models/vote.model';
+import { Task } from '../models/vote.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,26 +37,24 @@ export class VoteService {
   }
 
   allUsersCompleted(): boolean {
-    // Retrieve the total number of users
-    const totalUsers = 3; // Assuming you have 3 users, adjust this based on your actual number of users
-  
-    // Check if all users have completed voting
+    const totalUsers = 3; 
     for (let i = 1; i <= totalUsers; i++) {
       if (!this.isVoteCompleted(i)) {
-        return false; // Return false if any user has not completed voting
+        return false; 
       }
     }
-    return true; // Return true if all users have completed voting
+    return true; 
   }
 
-  // Modify createVote to accept cardValue and confidenceLevel parameters
-  createVote(cardValue: number, confidenceLevel: ConfidenceLevel): Observable<any> {
+  
+  createVote(cardValue: number, confidenceLevel: ConfidenceLevel, taskId: number): Observable<any> {
     if (!this.selectedUserId) {
-      throw new Error('No user ID selected');
+        throw new Error('No user ID selected');
     }
-    const url = `${this.baseUrl}/add/${this.selectedUserId}`;
+    const url = `${this.baseUrl}/add/${this.selectedUserId}/${taskId}`;
     return this.http.post<any>(url, { cardValue, confidenceLevel });
-  }
+}
+
   
   getAllVotes(): Observable<Vote[]> {
     return this.http.get<Vote[]>(`${this.baseUrl}/all`);
@@ -64,6 +63,20 @@ export class VoteService {
   deleteVote(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/delete/${id}`);
   }
+
+  getAllTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.baseUrl}/tasks/getAllTasks`);
+  }
+  
+  getTaskById(taskId: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/tasks/${taskId}`);
+  }
+
+  getVotesForTask(taskId: number): Observable<Vote[]> {
+    const url = `${this.baseUrl}/task/${taskId}/votes`;
+    return this.http.get<Vote[]>(url);
+  }
+  
 
   // addVote(vote: Vote): Observable<Vote> {
   //   return this.http.post<Vote>(`${this.baseUrl}/add`, vote);

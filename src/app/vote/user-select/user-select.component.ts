@@ -17,8 +17,9 @@ export class VoteCompletedComponent {
 
   selectUser(user: number): void {
     this.selectedUser = user;
+    const taskId = 1;
     this.voteService.setSelectedUserId(user); // Set the selected user ID in the service
-    this.router.navigate(['/vote', this.selectedUser]);
+    this.router.navigate(['/vote', this.selectedUser, taskId]);
   }
 
   isUserCompleted(user: number): boolean {

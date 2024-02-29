@@ -1,6 +1,5 @@
 <body>
   <main>
-    <!-- Voting container -->
     <div *ngIf="isUserSelected" class="voting-container">
       <!-- Voting phrase -->
       <div class="phrase-container">
@@ -9,8 +8,10 @@
       
       <!-- Task -->
       <div class="phrase-container">
-        <p class="task-text">{{ tasks[currentTaskIndex] }}</p>
+        <p class="task-text">{{ tasks[currentTaskIndex] ? tasks[currentTaskIndex].taskName : ''  }} : 
+          {{ tasks[currentTaskIndex] ? tasks[currentTaskIndex].description : '' }}</p>
       </div>
+      
       
       <!-- Voting cards -->
       <div class="cards-container">

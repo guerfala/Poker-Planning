@@ -1,14 +1,41 @@
-<!-- <div class="result-container">
-    <button class="start-button" (click)="revealResults()" *ngIf="!showResults">Reveal voting result</button>
-    <div *ngIf="showResults">
-      <h2 class="task-title">{{ task }}</h2>
-      <div class="user-results">
-        <div *ngFor="let user of users" class="user-result">
-          <h3>User {{ user.id }}</h3>
-          <p>Vote: {{ user.vote }}</p>
-          <p>Confidence Level: {{ user.confidenceLevel }}</p>
-        </div>
+<main>
+  <div class="result-container">
+    <!-- Task Name and Navigation Buttons -->
+    <div class="task-header">
+      <!-- Previous Task Button -->
+      <button (click)="goToPreviousTask()" class="nav-button">Previous Task</button>
+      <!-- Task Name -->
+      <h1 class="task-name">{{ taskName }}</h1>
+      <!-- Next Task Button -->
+      <button (click)="goToNextTask()" class="nav-button">Next Task</button>
+    </div>
+
+    <!-- Display the average card value -->
+    <div class="average-card-value-container">
+      <p class="average-card-value">Average Vote: {{ averageCardValue | number:'1.1-1' }}</p>
+    </div>
+
+    
+
+    <!-- User Vote Results -->
+    <div class="user-votes-container">
+      <!-- Loop through each user vote -->
+      <div *ngFor="let userVote of userVoteResults" class="user-vote">
+        <!-- User ID -->
+        <p class="user-id">User ID: {{ userVote.userId }}</p>
+        <!-- Vote Value -->
+        <p class="vote-value">Vote: {{ userVote.cardValue }}</p>
+        <!-- Confidence Level -->
+        <p class="confidence-level">Confidence Level: {{ userVote.confidenceLevel }}</p>
+        <!-- Vote Timestamp -->
+        <p class="vote-timestamp">Vote Timestamp: {{ userVote.voteTimestamp }}</p>
       </div>
     </div>
+    <div *ngIf="shouldDiscussTask" class="discussion-text">
+      This task should be discussed
+      <button class="chat-btn">
+        <img src="../../../assets/icons/chat.png" alt="Validate" width="40" height="40">
+      </button>
+    </div>
   </div>
-   -->
+</main>
