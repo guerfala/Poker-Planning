@@ -15,6 +15,8 @@ import { VotesListComponent } from './vote/votes-list/votes-list.component';
 import { VoteCompletedComponent } from './vote/user-select/user-select.component';
 import { StartComponent } from './vote/start/start.component';
 import { ResultComponent } from './vote/result/result.component';
+import {ListPackComponent} from "./list-pack/list-pack.component";
+import {ViewPackComponent} from "./view-pack/view-pack.component";
 
 
 
@@ -33,7 +35,7 @@ const routes: Routes = [
   {path: 'roomsdev', component: TableRoomDevComponent},
 
 /////////////////////////////////////////// Vote ///////////////////////////////////////////
-  
+
 {path: 'vote/:userId/:taskId', component: VoteComponent},
   {path: 'votes', component: VotesListComponent},
   {path: 'vuser', component: VoteCompletedComponent},
@@ -41,15 +43,18 @@ const routes: Routes = [
   {path: 'vresult', component: ResultComponent},
 
 /////////////////////////////////////////// USER ///////////////////////////////////////////
-  
+
   {path:  'login', component: LoginComponent },
   {path:  'userDetails', component:UserDetailsComponent},
-  {path: 'updateUser/:id', component:UpdateUserComponent}
-  
+  {path: 'updateUser/:id', component:UpdateUserComponent},
+/////////////////////////////////////////// packandcard ///////////////////////////////////////////
+
+  {path: 'list-pack', component: ListPackComponent},
+  {path: 'list-pack/:id', component: ViewPackComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { } 
+export class AppRoutingModule { }

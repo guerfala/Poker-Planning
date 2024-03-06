@@ -1,0 +1,20 @@
+body {
+  height: 500px;
+  width: 500px;
+  overflow: hidden;
+  /* background: linear-gradient(45deg, #061de3, #e306ca);*/
+  display: flow;
+  justify-content: center;
+  align-items: center;
+
+}
+mat-slider {
+  color: #ca6168;
+}
+
+.icon {
+  display: inline-block;
+  background-size: cover;
+}
+
+

@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.back button {
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+
+}
+
+.back button:hover {
+  transform: translateY(-4px);
+}
+
+.back button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* Additional styles for the icon inside the button to ensure visibility and alignment */
+.back button .icon {
+  vertical-align: middle;
+  margin-right: 8px; /* Adjust according to the icon size */
+}
+
+/* This ensures that the button styles do not affect the circle-button class */
+.circle-button {
+  /* Keep your existing styles */
+}
+
+/* If you have specific images for your game buttons, you can set them here */
+/* Example: */
+.back button.join-room {
+  background-size: cover; /* Cover the button area with the image */
+  color: transparent; /* Hide the text if you only want the image visible */
+}
+
+
+
+
+
+
+body {
+  height: 100vh;
+  overflow: hidden;
+ /* background: linear-gradient(45deg, #061de3, #e306ca);*/
+  color: rgb(211, 211, 211);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup { /*Settings*/
+  display: none; /* Initially hide the popup */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.popup.show {
+  display: block; /* Show the popup when isPopupVisible is true */
+}
+
+
+
+.circle-button {
+
+  border-radius: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+ width: 80px;
+  height: 80px;
+
+}
+.container {
+  width: 250px;
+  height: 400px;
+  perspective: 800px;
+  box-shadow: 18px 12px 20px rgba( 0.8,  0.8,  0.8, 0.8);
+
+}
+
+
+.container:hover > .card {
+
+  transform: rotateY(180deg);
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+}
+
+.back {
+
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+
+}
+.icon {
+  display: inline-block;
+  background-size: cover;
+}

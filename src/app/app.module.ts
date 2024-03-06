@@ -35,6 +35,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
+import {ListPackComponent} from "./list-pack/list-pack.component";
+import {ViewPackComponent} from "./view-pack/view-pack.component";
+import {SettingsComponent} from "./settings/settings.component";
 
 
 
@@ -51,7 +54,7 @@ import { MatSliderModule } from '@angular/material/slider';
     UpdateRoomComponent,
     TableRoomComponent,
     ChatComponent,
-    
+
     VoteComponent,
     VotesListComponent,
     ConfirmationComponent,
@@ -64,7 +67,9 @@ import { MatSliderModule } from '@angular/material/slider';
     LoginComponent,
     UserDetailsComponent,
     UpdateUserComponent,
-
+    ListPackComponent,
+    ViewPackComponent,
+    SettingsComponent
 
 
   ],
@@ -89,7 +94,7 @@ import { MatSliderModule } from '@angular/material/slider';
     MatSliderModule,
 
 
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
