@@ -1,0 +1,122 @@
+/* styles.css */
+
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-image: url('../../../assets/img/pokertable.jpg'); 
+    background-size: 90%; /* Ensure the image covers the entire viewport */
+    background-position: center; /* Center the image horizontally and position it at the top */
+    height: 100vh; /* Set the body height to fill the viewport */
+    margin-bottom: 10px; /* Remove top margin to bring the background image closer to the header */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Set main container to fill the body height */
+}
+
+.user-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.proceed-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+
+.voting-container {
+    text-align: center;
+    margin-top: 10px;
+    width: 70%;
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-direction: column;
+    /* Add any additional styling as needed */
+}
+
+
+.voting-container h2,
+.voting-container p {
+    color: #ffffff; /* Set text color to white */
+}
+
+.cards-container {
+    margin-top: 1px; /* Adjust margin as needed */
+}
+.card-button {
+    display: inline-block;
+    padding: 20px 20px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: #333333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.card-button:hover {
+    background-color: #f0f0f0;
+}
+  
+.card-button.selected {
+    background-color: #ffcc00;
+    color: #ffffff;
+    border-color: #ffcc00;
+}
+
+.validate-button {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-top: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0f8f;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.validate-button:hover {
+    background-color: #830174; /* Darker shade of yellow on hover */
+}
+
+.confidence-slider {
+    display: flex;
+    align-items: center;
+}
+  
+.confidence-slider mat-slider {
+    flex: 1;
+    margin-right: 10px;
+}
+
+
+.confidence-level-container {
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.task-text {
+    font-size: 28px; 
+    margin-top: 10px;/* Adjust the font size as needed */
+}
+  
+
+app-header {
+    z-index: 1000;
+}
+  

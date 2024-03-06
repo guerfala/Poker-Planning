@@ -1,0 +1,43 @@
+/* styles.css */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set main container to 100% of viewport height */
+  }
+
+.voting-container {
+    text-align: center;
+    margin-top: 20px;
+    background-image: url('../../../assets/img/pokertable.jpg'); /* Replace 'background-image.jpg' with your image file name */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center top; /* Center the image within the container */
+    height: 90vh; /* Make container full height of viewport */
+    width: 80%;
+    display: flex; /* Use flexbox layout */
+    justify-content: center; 
+    align-items: center; /* Center items vertically */
+    flex-direction: column;
+    /* Add any additional styling as needed */
+  }
+
+.start-button {
+    display: inline-block;
+    padding: 30px 50px;
+    margin-top: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0f8f;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.start-button:hover {
+    background-color: #830174; /* Darker shade of yellow on hover */
+}
+

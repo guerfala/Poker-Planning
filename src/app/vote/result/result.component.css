@@ -1,0 +1,98 @@
+/* body {
+    margin: 0; 
+    padding: 0; 
+    background-image: url('../../../assets/img/pokertable.jpg'); 
+    background-size: 90%; 
+    background-position: center; 
+    height: 100vh; 
+    margin-bottom: 10px; 
+} */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Set main container to fill the body height */
+}
+.result-container {
+    /* Ensure the container takes full width */
+    width: 100%;
+    text-align: center;
+  }
+  
+  .average-card-value-container {
+    margin-top: 30px; /* Adjust spacing as needed */
+  }
+  .average-card-value {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Set text color */
+    margin-top: 10px; /* Adjust spacing from task name */
+  }
+  .discussion-text {
+    font-size: 1rem; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #c80303; /* Set text color */
+    margin-top: 5px; /* Adjust spacing from task name */
+  }
+
+  .task-header {
+    /* Use flexbox for task header layout */
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px; /* Add some space between task header and user votes */
+  }
+  
+  .task-name {
+    /* Style task name */
+    margin: 0;
+  }
+  
+  .nav-button {
+    /* Style navigation buttons */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .user-votes-container {
+    /* Use flexbox for user votes layout */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    margin-top: 70px;
+  }
+  
+  .user-vote {
+    /* Style individual user vote */
+    flex: 1 1 300px; /* Each user vote occupies a width of 300px */
+    margin-right: 20px; /* Add some space between user votes */
+    margin-bottom: 20px; /* Add some space below each user vote */
+  }
+.user-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.chat-btn {
+    display: inline-block;
+    padding: 5px 5px;
+    /* margin-top: 15px; */
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 12px;
+    background-color: #03ff20;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.chat-btn:hover {
+    background-color: #057227; /* Darker shade of yellow on hover */
+}
+

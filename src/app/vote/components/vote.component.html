@@ -1,0 +1,46 @@
+<body>
+  <main>
+    <div *ngIf="isUserSelected" class="voting-container">
+      <!-- Voting phrase -->
+      <div class="phrase-container">
+        <p>{{ votingPhrase }}</p>
+      </div>
+      
+      <!-- Task -->
+      <div class="phrase-container">
+        <p class="task-text">{{ tasks[currentTaskIndex] ? tasks[currentTaskIndex].taskName : ''  }} : 
+          {{ tasks[currentTaskIndex] ? tasks[currentTaskIndex].description : '' }}</p>
+      </div>
+      
+      <dialog id="close-open-dialog">
+        <form>
+          <p>some text</p>
+          <button>Proceed</button>
+          <button>Cancel</button>
+        </form>
+      </dialog>
+      <!-- Voting cards -->
+      <div class="cards-container">
+        <button class="card-button" 
+                *ngFor="let card of votingCards"
+                [class.selected]="selectedCard === card" 
+                (click)="selectCard(card)">
+          {{ card }}
+        </button>
+      </div>
+        
+      <!-- Confidence level selection -->
+      <div class="confidence-level-container">
+        <select [(ngModel)]="selectedConfidenceLevel">
+          <option value="" disabled selected>Choose confidence level</option> <!-- Placeholder option -->
+          <option *ngFor="let level of confidenceLevels" [value]="level.value" (click)="selectConfidenceLevel(level.value)">{{ level.label }}</option>
+        </select>
+      </div>
+      
+      <!-- Validate button -->
+      <button class="validate-button" (click)="validateVote()">
+        <img src="../../../assets/icons/tick.png" alt="Validate" width="30" height="30">
+      </button>
+    </div>
+  </main>
+</body>
