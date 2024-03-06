@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from '../Models/user';
+import { Gender, Role, User } from '../Models/user';
 import { UserService } from '../Services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -12,7 +12,6 @@ export class UpdateUserComponent {
 
   userId!: number;
   user: User = new User();
-
 
   constructor(private userservice: UserService , private route: ActivatedRoute , private router: Router)
   {}

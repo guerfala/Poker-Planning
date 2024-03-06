@@ -23,6 +23,7 @@ export class HeaderComponent  implements OnInit{
   public logout()
   {
  localStorage.removeItem('jwtToken');
+ localStorage.removeItem('userData');
  this.router.navigate(['/login']);
   }
 

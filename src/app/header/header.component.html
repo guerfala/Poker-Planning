@@ -31,7 +31,9 @@
                 </li>
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+            <li *ngIf="isLoggedIn()">
+              <a class="nav-link scrollto" routerLink="/userDetails">Profile</a>
+            </li>
             <href *ngIf="!isLoggedIn()" type="button" class="getstarted scrollto link-button" routerLink="/login">Log in</href>
             <button *ngIf="isLoggedIn()" class="getstarted scrollto link-button" (click)="logout()">Log out</button>
             

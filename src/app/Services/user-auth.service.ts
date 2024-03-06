@@ -6,18 +6,26 @@ import { Injectable } from '@angular/core';
 export class UserAuthService {
 
   constructor() { }
-  public setToken(jwtToken:string)
-  {
-    localStorage.setItem('jwtToken',jwtToken);
+
+
+   public setTokenAndUser(jwtToken: string, userData: any): void {
+    localStorage.setItem('jwtToken', jwtToken);
+    localStorage.setItem('userData', JSON.stringify(userData));
+  }
+
+
+  public getUserData(): any {
+    const userData = localStorage.getItem('userData');
+    return userData ? JSON.parse(userData) : null;
   }
 
   public  getToken(): string { 
     return localStorage.getItem('jwtToken') || '';
   }
 
-  public clear() 
-  {
-    localStorage.clear;
+  public clear(): void {
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('userData');
   }
 
   public isLoggedIn()

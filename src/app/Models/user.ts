@@ -11,10 +11,10 @@ export class User {
   role!: Role;
   skillRate!: number;
 
-constructor() {}
 
 
-
+constructor()
+{}
 }
   export enum Gender {
     Male = 'Male',
