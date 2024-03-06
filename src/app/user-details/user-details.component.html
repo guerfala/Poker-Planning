@@ -1,3 +1,4 @@
+<app-header></app-header>
 <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
@@ -5,7 +6,7 @@
   
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
-  
+      
       <!-- ID Column -->
       <ng-container matColumnDef="userId">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
