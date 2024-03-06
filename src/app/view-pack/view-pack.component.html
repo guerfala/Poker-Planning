@@ -1,0 +1,19 @@
+<app-header></app-header>
+<body      [style.background-image]="'url(./assets/img/pokertable.jpg)'">
+
+
+
+<div class="container"  *ngFor="let card of cards" >
+
+  <div class="card" >
+    <div class="front" [style.background-image]="'url(./assets/img/' + card.image + ')'">
+    </div>
+
+  </div>
+</div>
+
+
+
+
+</body>
+<app-footer></app-footer>

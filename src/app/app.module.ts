@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,48 +11,40 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { TableRoomComponent } from './table-room/table-room.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-import { AddPackComponent } from './add-pack/add-pack.component';
-import { EditPackComponent } from './edit-pack/edit-pack.component';
-import {FormsModule} from "@angular/forms";
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {MatButtonModule} from "@angular/material/button";
-import { PaksListComponent } from './paks-list/paks-list.component';
+import { ListPackComponent } from './list-pack/list-pack.component';
+import {HttpClientModule} from "@angular/common/http";
+import { ViewPackComponent } from './view-pack/view-pack.component';
+import { SettingsComponent } from './settings/settings.component';
+import {MatSliderModule} from "@angular/material/slider";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatButtonToggle} from "@angular/material/button-toggle";
 
 @NgModule({
-    bootstrap: [AppComponent],
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
-        HomeComponent,
-        RoomComponent,
-        TableRoomComponent,
-        AddPackComponent,
-        EditPackComponent,
-
-
-
-    ],
-    exports: [
-        HeaderComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        HttpClientModule,
-        FormsModule,
-        MatButtonModule,
-        MatTableModule,
-        MatPaginatorModule,
-
-    ],
-    providers: [
-        provideClientHydration(),
-        provideAnimationsAsync(),
-    ]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    RoomComponent,
+    TableRoomComponent,
+    ListPackComponent,
+    ViewPackComponent,
+    SettingsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    HttpClientModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatButtonToggle
+  ],
+  providers: [
+    provideClientHydration()
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

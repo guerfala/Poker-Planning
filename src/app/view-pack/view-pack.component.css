@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* If you have specific images for your game buttons, you can set them here */
+/* Example: */
+
+
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  /* background: linear-gradient(45deg, #061de3, #e306ca);*/
+  color: rgb(211, 211, 211);
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.container {
+  margin-left: 20px;
+
+  width: 100px;
+  height: 150px;
+  perspective: 800px;
+
+}
+
+
+.card {
+
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+}
+
+

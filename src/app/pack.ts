@@ -3,5 +3,6 @@ export  class Pack {
   nbCards!:number;
   packDescription!:string;
   packName!:String;
+  image!:String;
 
 }

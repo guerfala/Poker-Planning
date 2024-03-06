@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<body    [style.background-image]="'url(./assets/img/backgroud1.jpg)'" >
+  <span class="icon"   style="margin-bottom: 350px; width: 150px; height: 100px;"  (click)="togglePopup()" [style.background-image]="'url(./assets/img/settings.png)'"></span>
+
+<div class="container" *ngFor="let packe of packs" style="margin-top: 200px;">
+
+  <div class="card" style="" (mouseenter)="onHover()">
+    <div class="front" [style.background-image]="'url(./assets/img/' + packe.image + ')'">
+    </div>
+    <div class="back" [style.background-image]="'url(./assets/img/imagebackcard.png)'">
+     <button (click)="gotoviewpack(packe.packId)">  <span class="icon"  [style.background-image]="'url(./assets/img/ViewPack.png)'" style="height: 100%; width: 100%; "></span> </button>
+
+      <button>  <span class="icon" [style.background-image]="'url(./assets/img/JoinRoom.png)'" style="height: 100%; width: 100%; "></span> </button>
+
+
+    </div>
+  </div>
+</div>
+  <div class="popup" [class.show]="isPopupVisible"  style="background-color: #ba0000;" >
+    <!-- Content of your popup -->
+  <app-settings (fullscreenToggle)="onFullscreenToggle($event)"  (secondSettingChange)="onSecondSettingChange($event)" [volume]="audio.volume"></app-settings>
+
+  </div>
+</body>
+<app-footer></app-footer>

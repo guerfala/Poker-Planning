@@ -1,6 +1,6 @@
 import { Pack } from './pack';
 
-describe('Pack', () => { //test
+describe('Pack', () => {
   it('should create an instance', () => {
     expect(new Pack()).toBeTruthy();
   });

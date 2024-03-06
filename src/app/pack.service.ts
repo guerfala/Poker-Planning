@@ -9,8 +9,7 @@ import {Pack} from "./pack";
 export class PackService {
   private baseUrl = "http://localhost:8081/pokerplanning/";
 
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getPackList(): Observable<Pack[]>{
     return this.httpClient.get<Pack[]>(`${this.baseUrl+'Pack'}`);
