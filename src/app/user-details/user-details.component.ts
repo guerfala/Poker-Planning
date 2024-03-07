@@ -18,12 +18,15 @@ export class UserDetailsComponent {
 
   user: User = new User();
 
-  constructor(private userServ: UserService, private router: Router) { }
+  constructor(private userServ: UserService, private router: Router, private authserv: UserAuthService) { }
 
   ngOnInit(): void {
-    const userData = this.userServ.getUserData();
+    const userData = this.authserv.getUserData();
     if (userData) {
-      this.user = userData;
+      const userId = userData.userId;
+      this.userServ.getUserById(userId).subscribe((user) => {
+        this.user = user;
+      });
     }
   }
 

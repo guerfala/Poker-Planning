@@ -5,16 +5,20 @@ import { LoginComponent } from './login/login.component';
 import { TestComponent } from './test/test.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { AuthGuard } from './Guard/auth.guard';
+import { RoomComponent } from './room/room.component';
 
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent },
-  {path: 'home', component: HomeComponent },
   {path:  'login', component: LoginComponent },
-  {path:  'test', component: TestComponent},
-  {path:  'userDetails', component:UserDetailsComponent},
-  {path: 'updateUser/:id', component:UpdateUserComponent}
+  {path: 'home', component: HomeComponent , canActivate: [AuthGuard]},
+  {path:  'test', component: TestComponent,canActivate: [AuthGuard]},
+  {path:  'userDetails', component:UserDetailsComponent,canActivate: [AuthGuard]},
+  {path: 'updateUser/:id', component:UpdateUserComponent,canActivate: [AuthGuard]},
+  {path: 'room', component:RoomComponent,canActivate: [AuthGuard]},
+
 
 ];
 

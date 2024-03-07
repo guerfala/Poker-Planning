@@ -32,4 +32,10 @@ export class UserAuthService {
   {
   return this.getToken();
   }
+
+  
+  isAdmin(): boolean {
+    const userData = this.getUserData();
+    return userData && userData.role === "Admin";
+ }
 }
