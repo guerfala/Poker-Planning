@@ -1,0 +1,40 @@
+<main>
+    <section class="about">
+        <div class="col-md-6 offset-md-3">
+            <h1>Create Project</h1>
+            <form (ngSubmit)="onSubmit()" #projectForm="ngForm">
+                <div class="form-group">
+                    <label>Project Name</label>
+                    <input type="text" class="form-control" id="projectName"
+                        [(ngModel)]="project.projectName" name="projectName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Start Date</label>
+                    <input type="date" class="form-control" id="startDate"
+                        [(ngModel)]="project.startDate" name="startDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>End Date</label>
+                    <input type="date" class="form-control" id="endDate"
+                        [(ngModel)]="project.endDate" name="endDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="teamSelect">Team</label>
+                    <select class="form-control" id="teamSelect" [(ngModel)]="project.team" name="teamId">
+                        <option *ngFor="let team of teams" [value]="team.teamId">{{ team.teamName }}</option>
+                    </select>
+                </div>
+                
+                  
+
+              
+
+                <br>
+                <button class="btn btn-success" type="submit" [disabled]="!projectForm.valid">Save</button>
+            </form>
+        </div>
+    </section>
+</main>

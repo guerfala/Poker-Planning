@@ -1,0 +1,55 @@
+<h2> Project List</h2>
+
+<div style="text-align: center; margin-top: 20px;">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" [(ngModel)]="startDate">
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" [(ngModel)]="endDate">
+    <button (click)="filterByDateRange()" class="btn btn-primary" style="margin-left: 10px">Recherche</button>
+    <button routerLink="/create-project" class="btn btn-success" style="margin-left: 300px">Add new project</button>
+    
+</div>
+
+
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Project Id</th>
+            <th> Project Name </th>
+            <th> Start Date</th>
+            <th> End Date</th>
+            <th> Status</th>
+            <th> Team</th>
+            
+            <th> Actions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let project of projects" >
+            <td> {{ project.projetId }} </td>
+            <td> {{ project.projectName }} </td>
+            <td> {{ project.startDate | date: 'dd MMM yyyy' }} </td>
+            <td> {{ project.endDate | date: 'dd MMM yyyy' }} </td>
+
+            <td>
+                <span [ngClass]="{'status-icon': true, 'red': project.status === 1, 'blue': project.status === 2, 'green': project.status === 3}"></span>
+            </td>
+            <td>{{ project.teamName }}</td>
+            
+            
+            
+            <td>
+              <button (click) = "updateProject(project.projetId)" class = "btn btn-info"> Update</button>
+               <button (click) = "deleteProject(project.projetId)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+               <button (click)="showProjectDetails(project)" class="btn btn-primary" style="margin-left: 10px">Details</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div style="text-align: center; margin-top: 20px;">
+    <button (click)="goToPreviousPage()" class="btn btn-primary" [disabled]="currentPage === 1">Page précedente</button>
+    <button (click)="goToNextPage()" class="btn btn-primary" style="margin-left: 100px">Page suivante</button>
+  </div>
+  

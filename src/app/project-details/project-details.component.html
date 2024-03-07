@@ -1,0 +1,10 @@
+<div class="dialog-container">
+    <button mat-icon-button (click)="closeDialog()" class="close-button">
+        <mat-icon aria-label="Close dialog">close</mat-icon>
+      </button>
+    <h2>Project Details</h2>
+    <p><strong>ID:</strong> {{ project.projetId }}</p>
+    <p><strong>Name:</strong> {{ project.projectName }}</p>
+    <p><strong>Status:</strong> {{ project.status }}</p>
+    <p><strong>Duration:</strong> {{ calculateDurationInDays() }} days</p>
+  </div>
