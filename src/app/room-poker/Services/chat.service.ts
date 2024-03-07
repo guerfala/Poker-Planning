@@ -17,9 +17,12 @@ export class ChatService {
    }
 
   initConnectionSocket(){
-    const url = '//localhost:8082/pokerplanning/chat-socket'
+    const url = '//localhost:8081/chat-socket';
     const socket = new SockJS(url);
     this.stompClient = Stomp.over(socket);
+    this.stompClient.connect({}, () => {
+      console.log('WebSocket connection established');
+    });
   }
 
   joinRoom(roomId: string){

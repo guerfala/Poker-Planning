@@ -1,13 +1,103 @@
-table {
-    width: 80%;
-  }
-  
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 25%;
-  }
-  
+.container {
+  border-radius: 20px; /* Adjusted border-radius for smoother edges */
+  overflow: hidden; /* Ensure content inside the container doesn't overflow rounded corners */
+  margin-right: 20px; /* Add space on the right side */
+}
+
+.mat-form-field {
+  width: 100%; /* Ensure the input field takes full width */
+}
+
+.example-card {
+  width: calc(100% - 40px); /* Adjusted width to accommodate the margin */
+  max-width: 400px;
+  margin: 10px 20px; /* Add margin on all sides */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+.example-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.mat-card-header,
+.mat-card-content,
+.mat-card-actions {
+  padding: 16px;
+}
+
+.mat-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.mat-card-subtitle {
+  font-size: 16px;
+  color: #666;
+}
+
+.mat-card-content p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.mat-card-actions button {
+  margin-left: 8px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mat-card-actions button:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.mat-card-actions button.primary {
+  color: #007bff;
+}
+
+.mat-card-actions button.primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.mat-card-actions button.warn {
+  color: #dc3545;
+}
+
+.mat-card-actions button.warn:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.join-button {
+  color: #fff;
+  border-radius: 20px; /* Adjusted border-radius for smoother edges */
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.join-button:hover {
+  background-color: rgba(118, 215, 97, 0.1);
+  color: #218838;
+}

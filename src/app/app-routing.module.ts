@@ -40,6 +40,8 @@ const routes: Routes = [
   {path: 'vstart', component: StartComponent},
   {path: 'vresult', component: ResultComponent},
 
+  { path: 'vote/:userId', component: VoteComponent },
+
 /////////////////////////////////////////// USER ///////////////////////////////////////////
   
   {path:  'login', component: LoginComponent },

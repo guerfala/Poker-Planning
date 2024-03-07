@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ChatService } from '../Services/chat.service';
 import { ChatMessage } from '../Models/chat-message';
 import { ActivatedRoute } from '@angular/router';
+import { UserAuthService } from '../../user/Services/user-auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -11,27 +12,31 @@ import { ActivatedRoute } from '@angular/router';
 export class ChatComponent {
 
   messageInput: string = '';
-  userId: string="";
+  userId: number | null =this.userAuth.getUserId();
   messageList: any[] = [];
 
   constructor(private chatService: ChatService,
-    private route: ActivatedRoute){
+    private route: ActivatedRoute,
+    private userAuth: UserAuthService){
 
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.userId = this.route.snapshot.params["user"];
     this.chatService.joinRoom("ABC");
     this.listenerMessage();
-  }
+}
+
 
   sendMessage(){
-    const chatMessage = {
-      message: this.messageInput,
-      user: this.userId
-    }as ChatMessage
-    this.chatService.sendMessage("ABC", chatMessage);
-    this.messageInput = '';
+    if (this.userId !== null) {
+      const chatMessage: ChatMessage = {
+          message: this.messageInput,
+          user: this.userId.toString()
+      };
+      this.chatService.sendMessage("ABC", chatMessage);
+  }
+  this.messageInput = '';
   }
 
   listenerMessage(){

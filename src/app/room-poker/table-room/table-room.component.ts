@@ -7,39 +7,26 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-table-room',
   templateUrl: './table-room.component.html',
-  styleUrl: './table-room.component.css'
+  styleUrls: ['./table-room.component.css']
 })
 export class TableRoomComponent {
 
   roomList!: Room[];
   rooms!: Room[];
-  dataSource:any;
-  displayedColumns = ['roomId','roomName','description','actions'];
+  dataSource: Room[] = [];
+  displayedColumns = ['roomId', 'roomName', 'description', 'actions'];
 
-  userId1 = 1;
-  userID2 = 2;
-
-  constructor(private roomService: RoomService, private router: Router){
-    this.roomService.getRoomList()
-    .subscribe(res => {
+  constructor(private roomService: RoomService, private router: Router) {
+    this.roomService.getRoomList().subscribe(res => {
       this.roomList = res;
-      this.dataSource = new MatTableDataSource<Room>(this.roomList);
+      this.dataSource = this.roomList;
     });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  getRooms(){
-    this.roomService.getRoomList().subscribe(data =>{
-      this.rooms = data;
-    })
+    // Assuming you want to filter on roomName
+    this.dataSource = this.roomList.filter(room => room.roomName.toLowerCase().includes(filterValue.trim().toLowerCase()));
   }
 
   editRoom(id: number) {
@@ -48,16 +35,19 @@ export class TableRoomComponent {
 
   deleteRoom(id: number) {
     this.roomService.deleteRoom(id).subscribe(data => {
-      this.getRooms();
-    })
+      // Refreshing the list after deletion
+      this.roomService.getRoomList().subscribe(res => {
+        this.roomList = res;
+        this.dataSource = this.roomList;
+      });
+    });
   }
 
-  joinChat(id:number){
+  joinChat(id: number) {
     this.router.navigate(['chat', id]);
   }
 
-  joinRoom(){
+  joinRoom() {
     this.router.navigate(['vstart']);
   }
-
 }

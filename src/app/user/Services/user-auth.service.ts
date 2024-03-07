@@ -32,4 +32,9 @@ export class UserAuthService {
   {
   return this.getToken();
   }
+
+  public getUserId(): number | null {
+    const userData = this.getUserData();
+    return userData ? userData.userId : null; // Assuming user data contains an 'id' field
+  }
 }

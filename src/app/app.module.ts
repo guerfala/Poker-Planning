@@ -35,6 +35,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -87,6 +88,7 @@ import { MatSliderModule } from '@angular/material/slider';
     ReactiveFormsModule,
     MatIconModule,
     MatSliderModule,
+    MatCardModule,
 
 
     
