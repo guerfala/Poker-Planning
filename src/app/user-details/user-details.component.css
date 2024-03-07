@@ -1,0 +1,20 @@
+.example-card {
+  width:  700px;
+  height: 700px;/* Adjust the width as needed */
+  margin: 0 auto; /* Center the card horizontally */
+  padding: 150px; /* Add padding to the card */
+}
+
+p {
+  font-weight: bold; /* Make everything inside <p> tags bold */
+}
+
+.not-bold {
+  font-weight: normal; /* Make the variable normal weight */
+}
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  

@@ -18,6 +18,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -30,7 +32,6 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     HomeComponent,
     LoginComponent,
     TestComponent,
-    UserDetailsComponent,
     UpdateUserComponent,
 
 
@@ -49,6 +50,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     NoopAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
+    MatButtonModule,
 
 
 

@@ -3,61 +3,50 @@ import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { UserAuthService } from '../Services/user-auth.service';
 
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.css'
+  styleUrl: './user-details.component.css',
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
 })
 export class UserDetailsComponent {
 
-  userList!: User[];
-  users!: User[];
-  dataSource:any;
-  displayedColumns = ['userId','firstName','lastName','email','password','image','gender','role','skillRate','Actions'];
+  user: User = new User();
 
-  constructor(private userService: UserService, private router: Router){
-    this.userService.getUserList()
-    .subscribe(res => {
-      this.userList = res;
-      this.dataSource = new MatTableDataSource<User>(this.userList);
-    });
-  }
+  constructor(private userServ: UserService, private router: Router) { }
 
-
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  ngOnInit(): void {
+    const userData = this.userServ.getUserData();
+    if (userData) {
+      this.user = userData;
     }
   }
 
-getUsers() {
-  this.userService.getUserList().subscribe(data => {
-    this.users = data;
-  });
-}
-
-
-deleteUser(id: number) {
-  this.userService.DeleteProfil(id).subscribe(() => {
-    // Refresh the user list after deletion
-    this.getUsers();
-    // Navigate after user is deleted and list is refreshed
-    window.location.reload();
-  });
-}
 
 
 
-  editUser(id: number) {
-    this.router.navigate(['/updateUser', id]);
-  
+
+  deleteUser(id: number) {
+    this.userServ.DeleteProfil(id).subscribe(() => {
+      // Refresh the user list after deletion
+      
+      // Navigate after user is deleted and list is refreshed
+      window.location.reload();
+    });
   }
-
-
   
+  
+  
+    editUser(id: number) {
+      this.router.navigate(['/updateUser', id]);
+    
+
+    }
+
+
 }

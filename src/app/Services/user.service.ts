@@ -36,4 +36,10 @@ export class UserService {
 getUserById(userId: number): Observable<User>{
   return this.httpclient.get<User>(this.PathOfApi + `/api/auth/GetUserById/${userId}`, { headers: this.requestHeader } );
 }
+
+
+public getUserData(): any {
+  const userData = localStorage.getItem('userData');
+  return userData ? JSON.parse(userData) : null;
+}
 }

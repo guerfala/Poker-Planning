@@ -12,6 +12,7 @@ import { User } from '../Models/user';
 })
 export class LoginComponent implements OnInit {
 
+  warningMessage: string = '';
   constructor(private userService: UserService , private userAuthService:UserAuthService , private router : Router) {}
   ngOnInit(): void {
    
@@ -24,12 +25,13 @@ export class LoginComponent implements OnInit {
       const userData = Response.user;
 
       this.userAuthService.setTokenAndUser(token,userData);
-      this.router.navigate(['/userDetails']);
+      this.router.navigate(['/home']);
    
       
     },
     (error) => {
       console.log(error);
+      this.warningMessage = 'Invalid credentials. Please try again.';
     }
     );
   }
