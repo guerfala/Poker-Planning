@@ -5,8 +5,6 @@ import { VoteService } from '../services/vote.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmationComponent } from '../confirmation/confirmation.component';
 
-
-
 @Component({
   selector: 'app-votes-list',
   templateUrl: './votes-list.component.html',
@@ -14,7 +12,7 @@ import { ConfirmationComponent } from '../confirmation/confirmation.component';
 })
 export class VotesListComponent implements OnInit {
   dataSource: MatTableDataSource<Vote> = new MatTableDataSource<Vote>([]); // Data source for the table
-  displayedColumns: string[] = ['voteId', 'cardValue','voteTimestamp','confidenceLevel', 'delete']; // Displayed columns
+  displayedColumns: string[] = ['voteId', 'userId', 'taskId', 'cardValue', 'voteTimestamp', 'confidenceLevel', 'delete']; // Displayed columns
 
   constructor(private voteService: VoteService, private dialog: MatDialog) { }
 
@@ -27,7 +25,7 @@ export class VotesListComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Vote>(votes); // Set up data source
     });
   }
-  
+
   deleteVote(voteId: number): void {
     this.voteService.deleteVote(voteId).subscribe(
       () => {
@@ -37,17 +35,17 @@ export class VotesListComponent implements OnInit {
       },
       (error) => {
         console.error('Failed to delete vote:', error);
-    });
+      });
   }
+
   openConfirmationDialog(voteId: number): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '250px';
     dialogConfig.data = 'Are you sure you want to delete this item?';
     dialogConfig.position = { top: '50%', left: '50%' };
     dialogConfig.panelClass = 'custom-dialog-container'; // Add custom styling if necessary
-  
+
     const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfig);
-  
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === true) {

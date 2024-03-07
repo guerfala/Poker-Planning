@@ -8,7 +8,7 @@ import { Room } from '../Models/room';
 })
 export class RoomService {
 
-  private baseURL="http://localhost:8082/pokerplanning/"
+  private baseURL="http://localhost:8081/room/"
 
   constructor(private httpClient: HttpClient) { }
 

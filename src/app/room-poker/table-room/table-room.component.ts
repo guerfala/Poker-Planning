@@ -16,6 +16,9 @@ export class TableRoomComponent {
   dataSource:any;
   displayedColumns = ['roomId','roomName','description','actions'];
 
+  userId1 = 1;
+  userID2 = 2;
+
   constructor(private roomService: RoomService, private router: Router){
     this.roomService.getRoomList()
     .subscribe(res => {
@@ -49,8 +52,12 @@ export class TableRoomComponent {
     })
   }
 
-  joinRoom(id:number){
-    this.router.navigate(['room', id]);
+  joinChat(id:number){
+    this.router.navigate(['chat', id]);
+  }
+
+  joinRoom(){
+    this.router.navigate(['vstart']);
   }
 
 }

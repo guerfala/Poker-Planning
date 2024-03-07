@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RoomService } from '../Services/room.service';
-import { Room } from '../Models/room';
 import { Router } from '@angular/router';
 
 @Component({

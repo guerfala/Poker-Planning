@@ -11,7 +11,8 @@ import { Task } from '../models/vote.model';
   providedIn: 'root'
 })
 export class VoteService {
-  private baseUrl = 'http://localhost:8082/pokerplanning/vote'; // Base URL of your Spring Boot API
+  private baseUrl = 'http://localhost:8081/vote'; // Base URL of your Spring Boot API
+  private baseUrlTasks = 'http://localhost:8081/tasks';
   private selectedUserId: number | null = null;
   private completedUsers: Set<number> = new Set<number>();
 
@@ -47,13 +48,10 @@ export class VoteService {
   }
 
   
-  createVote(cardValue: number, confidenceLevel: ConfidenceLevel, taskId: number): Observable<any> {
-    if (!this.selectedUserId) {
-        throw new Error('No user ID selected');
-    }
-    const url = `${this.baseUrl}/add/${this.selectedUserId}/${taskId}`;
+  createVote(userId: number, cardValue: number, confidenceLevel: ConfidenceLevel, taskId: number): Observable<any> {
+    const url = `${this.baseUrl}/add/${userId}/${taskId}`;
     return this.http.post<any>(url, { cardValue, confidenceLevel });
-}
+  }
 
   
   getAllVotes(): Observable<Vote[]> {
@@ -65,11 +63,11 @@ export class VoteService {
   }
 
   getAllTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(`${this.baseUrl}/tasks/getAllTasks`);
+    return this.http.get<Task[]>(`${this.baseUrlTasks}/getAllTasks`);
   }
   
   getTaskById(taskId: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/tasks/${taskId}`);
+    return this.http.get<any>(`${this.baseUrlTasks}/${taskId}`);
   }
 
   getVotesForTask(taskId: number): Observable<Vote[]> {

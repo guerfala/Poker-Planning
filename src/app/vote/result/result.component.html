@@ -15,27 +15,35 @@
       <p class="average-card-value">Average Vote: {{ averageCardValue | number:'1.1-1' }}</p>
     </div>
 
-    
-
     <!-- User Vote Results -->
     <div class="user-votes-container">
       <!-- Loop through each user vote -->
-      <div *ngFor="let userVote of userVoteResults" class="user-vote">
-        <!-- User ID -->
-        <p class="user-id">User ID: {{ userVote.userId }}</p>
-        <!-- Vote Value -->
-        <p class="vote-value">Vote: {{ userVote.cardValue }}</p>
-        <!-- Confidence Level -->
-        <p class="confidence-level">Confidence Level: {{ userVote.confidenceLevel }}</p>
-        <!-- Vote Timestamp -->
-        <p class="vote-timestamp">Vote Timestamp: {{ userVote.voteTimestamp }}</p>
+      <div *ngFor="let userVote of userVoteResults" class="vote-container">
+        <!-- User Name -->
+        <p class="user-name">User Name: {{ userVote.userName }}</p>
+        <!-- Vote Details -->
+        <div class="vote-details">
+          <!-- Vote Value -->
+          <p class="vote-value">Vote: {{ userVote.cardValue }}</p>
+          <!-- Confidence Level -->
+          <p class="confidence-level">Confidence Level: {{ userVote.confidenceLevel }}</p>
+          <!-- Vote Timestamp -->
+          <p class="vote-timestamp">Vote Timestamp: {{ userVote.voteTimestamp }}</p>
+        </div>
       </div>
     </div>
+
+    <!-- Discussion Text -->
     <div *ngIf="shouldDiscussTask" class="discussion-text">
       This task should be discussed
       <button class="chat-btn">
         <img src="../../../assets/icons/chat.png" alt="Validate" width="40" height="40">
       </button>
     </div>
+
+    <!-- Download PDF Button -->
+    <button (click)="downloadPDF()">Download PDF
+      <img src="../../../assets/icons/print.png" alt="Validate" width="40" height="40">
+    </button>
   </div>
 </main>

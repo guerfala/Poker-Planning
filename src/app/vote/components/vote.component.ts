@@ -5,6 +5,8 @@ import { ConfidenceLevel } from '../models/vote.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ProceedComponent } from '../proceed/proceed.component';
 import { Task } from '../models/vote.model';
+import { User } from '../../user/Models/user';
+import { UserService } from '../../user/Services/user.service';
 
 @Component({
   selector: 'app-vote',
@@ -26,29 +28,23 @@ export class VoteComponent implements OnInit {
   ];
 
   selectedConfidenceLevel: ConfidenceLevel | null = null; // Initially set to null
-
-  selectedUser: number | null = null; // Initially set to null
-
-  isUserSelected: boolean = false; // Variable to track if a user is selected
-
-  completedUsers: number[] = [];
+  user: User = new User();
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private dialog: MatDialog,
-    private voteService: VoteService
+    private voteService: VoteService,
+    private userServ: UserService
   ) { }
   
   ngOnInit(): void {
-    // Retrieve the selected user ID from the route parameters
-    this.route.params.subscribe(params => {
-      const userId = params['userId'];
-      if (userId) {
-        this.selectedUser = Number(userId);
-        this.isUserSelected = true;
-      }
-    });
+    const userData = this.userServ.getUserData();
+    if (userData) {
+      this.user = userData;
+      console.log('Retrieved user ID:', this.user.userId);
+    }
+  
     
     this.voteService.getAllTasks().subscribe(tasks => {
       this.tasks = tasks;
@@ -67,27 +63,25 @@ export class VoteComponent implements OnInit {
     if (this.selectedCard !== null && this.selectedConfidenceLevel !== null) {
       const dialogRef = this.dialog.open(ProceedComponent, {
         width: '250px',
-        data: 'Are you sure you want to submit your vote?'
+        data: 'Are you sure you want to submit your vote?',
+        panelClass: 'proceed-dialog'
       });
   
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           if (this.selectedCard !== null && this.selectedConfidenceLevel !== null) {
-            if (this.selectedUser !== null) { // Check if selectedUser is not null
-              const taskId = this.tasks[this.currentTaskIndex].taskId; // Get the taskId of the current task
-              this.voteService.createVote(this.selectedCard, this.selectedConfidenceLevel, taskId).subscribe(
-                () => {
-                  console.log('Vote created successfully');
-                  this.voteService.markVoteCompleted(this.selectedUser); // Mark vote as completed
-                  this.moveToNextTask();
-                },
-                (error) => {
-                  console.error('Failed to create vote:', error);
-                }
-              );
-            } else {
-              console.warn('Selected user is null');
-            }
+            // Get the taskId of the current task
+            const taskId = this.tasks[this.currentTaskIndex].taskId; 
+            // Call your vote service with the selected card, confidence level, and task ID
+            this.voteService.createVote( this.user.userId,this.selectedCard, this.selectedConfidenceLevel, taskId).subscribe(
+              () => {
+                console.log('Vote created successfully');
+                this.moveToNextTask();
+              },
+              (error) => {
+                console.error('Failed to create vote:', error);
+              }
+            );
           } else {
             console.warn('Invalid selection: Card or confidence level is null');
           }
@@ -106,15 +100,8 @@ export class VoteComponent implements OnInit {
       this.selectedCard = null;
       this.selectedConfidenceLevel = null;
     } else {
-      // Check if all users have completed voting
-      const allUsersCompleted = this.voteService.allUsersCompleted();
-      if (allUsersCompleted) {
-        // Navigate to the result route
-        this.router.navigate(['/vresult']);
-      } else {
-        // If not all users have completed voting, navigate back to the user selection page
-        this.router.navigate(['/vuser']);
-      }
+      // Navigate to the result route
+      this.router.navigate(['/vresult']);
     }
   }
 }

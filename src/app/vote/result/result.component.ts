@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VoteService } from '../services/vote.service';
+import { jsPDF } from 'jspdf';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-result',
@@ -9,17 +11,32 @@ import { VoteService } from '../services/vote.service';
 export class ResultComponent implements OnInit {
   taskName: string = ''; // Initialize task name
   userVoteResults: any[] = []; // Array to hold user vote results
-  currentTaskId: number = 2; // Initialize current task ID
-  minTaskId: number = 2; // Minimum task ID
-  maxTaskId: number = 4; // Maximum task ID
+  currentTaskId: number = 1; // Initialize current task ID
+  minTaskId: number = 1; // Minimum task ID
+  maxTaskId: number = 1; // Maximum task ID
   averageCardValue: number = 0; // Initialize average card value
   shouldDiscussTask: boolean = false; // Flag to indicate if the task should be discussed
 
   constructor(private voteService: VoteService) { }
 
   ngOnInit(): void {
-    // Fetch vote results for the current task from the service
-    this.loadVotesForTask(this.currentTaskId);
+    // Fetch all tasks from the service
+    this.voteService.getAllTasks().subscribe(tasks => {
+      // Extract task IDs from the fetched tasks
+      const taskIds = tasks.map(task => task.taskId);
+
+      // Set minTaskId to the minimum task ID in the fetched tasks
+      this.minTaskId = Math.min(...taskIds);
+
+      // Set maxTaskId to the maximum task ID in the fetched tasks
+      this.maxTaskId = Math.max(...taskIds);
+
+      // Initialize currentTaskId to the minimum task ID
+      this.currentTaskId = this.minTaskId;
+
+      // Load votes for the initial task
+      this.loadVotesForTask(this.currentTaskId);
+    });
   }
 
   goToNextTask(): void {
@@ -91,5 +108,37 @@ export class ResultComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  downloadPDF(): void {
+    const doc = new jsPDF();
+
+    const requests = [];
+
+    // Fetch results for all tasks
+    for (let taskId = this.minTaskId; taskId <= this.maxTaskId; taskId++) {
+      requests.push(this.voteService.getVotesForTask(taskId));
+    }
+
+    forkJoin(requests).subscribe(results => {
+      results.forEach((userVoteResults, taskIndex) => {
+        // Add task name as a title
+        doc.text(`Task: ${this.taskName}`, 10, 10);
+
+        // Add user votes for the current task
+        userVoteResults.forEach((vote, index) => {
+          const y = 20 + index * 10;
+          doc.text(`User ID: ${vote.userId}, Card Value: ${vote.cardValue}, Confidence Level: ${vote.confidenceLevel}, Timestamp: ${vote.voteTimestamp}`, 10, y);
+        });
+
+        // Add a page break for the next task
+        if (taskIndex < this.maxTaskId - 1) {
+          doc.addPage();
+        }
+      });
+
+      // Save the PDF
+      doc.save('results.pdf');
+    });
   }
 }
