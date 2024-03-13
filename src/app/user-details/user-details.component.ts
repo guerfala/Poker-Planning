@@ -36,10 +36,10 @@ export class UserDetailsComponent {
 
   deleteUser(id: number) {
     this.userServ.DeleteProfil(id).subscribe(() => {
-      // Refresh the user list after deletion
-      
-      // Navigate after user is deleted and list is refreshed
+     
+
       window.location.reload();
+      this.authserv.clear();
     });
   }
   
