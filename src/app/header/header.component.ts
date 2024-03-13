@@ -26,6 +26,22 @@ export class HeaderComponent  implements OnInit{
  localStorage.removeItem('userData');
  this.router.navigate(['/login']);
   }
+  
+  redirectToRooms(): void {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      const role = JSON.parse(userData)?.role;
+      if (role === 'ScrumMaster') {
+        this.router.navigate(['/rooms']);
+      } else if (role === 'Developpeur') {
+        this.router.navigate(['/roomsdev']);
+      } else {
+        // Handle other roles or no role found
+      }
+    } else {
+      // Handle case when user data is not found
+    }
+  }
 
 
   

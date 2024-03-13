@@ -1,0 +1,9 @@
+.button-link {
+    cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+    padding: 8px 16px; /* Add padding for better click area */
+    color: #fff; /* Button text color */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+  

@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-table-room',
+  selector: 'app-table-room-dev',
   templateUrl: './table-room-dev.component.html',
   styleUrl: './table-room-dev.component.css'
 })
@@ -13,40 +13,27 @@ export class TableRoomDevComponent {
 
   roomList!: Room[];
   rooms!: Room[];
-  dataSource:any;
-  displayedColumns = ['roomId','roomName','description','actions'];
+  dataSource: Room[] = [];
+  displayedColumns = ['roomId', 'roomName', 'description', 'actions'];
 
-  userId1 = 1;
-  userID2 = 2;
-
-  constructor(private roomService: RoomService, private router: Router){
-    this.roomService.getRoomList()
-    .subscribe(res => {
+  constructor(private roomService: RoomService, private router: Router) {
+    this.roomService.getRoomList().subscribe(res => {
       this.roomList = res;
-      this.dataSource = new MatTableDataSource<Room>(this.roomList);
+      this.dataSource = this.roomList;
     });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    // Assuming you want to filter on roomName
+    this.dataSource = this.roomList.filter(room => room.roomName.toLowerCase().includes(filterValue.trim().toLowerCase()));
   }
 
-  getRooms(){
-    this.roomService.getRoomList().subscribe(data =>{
-      this.rooms = data;
-    })
-  }
-
-  joinChat(id:number){
+  joinChat(id: number) {
     this.router.navigate(['chat', id]);
   }
 
-  joinRoom(){
+  joinRoom() {
     this.router.navigate(['vstart']);
   }
 
