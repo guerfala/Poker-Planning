@@ -11,21 +11,26 @@ export class TaskService {
   private baseURL="http://localhost:8082/pokerplanning/tasks/"
 
   constructor(private httpClient: HttpClient) { }
-
+  
+  
   getTaskList(): Observable<Task[]>{
     return this.httpClient.get<Task[]>(`${this.baseURL+"getAllTasks"}`);
   }
 
 
   getTaskById(id: number): Observable<Task>{
-    return this.httpClient.get<Task>(`${this.baseURL+"GetTaskById"}/${id}`);
+    return this.httpClient.get<Task>(`${this.baseURL}${id}`);
+  }
+  updates(id: number, a: Task): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}updates/${id}`, a);
+  }
+  
+
+  updateTask(id: any, task: any): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL +"updates"}/${id}`, task);
   }
 
-  updateTask(id: number, task: Task): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL +"updateTask"}/${id}`, task);
-  }
-
-  deleteTask(id: number): Observable<Object>{
+  deleteTask(id: any): Observable<Object>{
     return this.httpClient.delete( `${this.baseURL + "deleteTask"}/${id}` );
   }
   

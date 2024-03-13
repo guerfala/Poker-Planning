@@ -1,32 +1,61 @@
 <app-header></app-header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<div class="container">
+
+  <div class="button-container">
+    <span class="iconStyle">
+
+      <a (click)="toggleDropdown()"><img src="../../assets/img/file.png" class="fileStyle" ></a>
+      <a (click)="toggleDropdown()"><img src="../../assets/img/stat.png" class="fileStyle" ></a>
+
+    </span>
+  
+  <span *ngIf="showDropdown" class="importStyle">
+  
+    <a class="buttonStyle" > Import from Jira </a>
+    <a class="buttonStyle">Import from CSV</a>
+ 
+  </span>
+
+</div>
 
 <div class="example-container-wrapper">
-<div cdkDropListGroup>
-  
+  <div cdkDropListGroup>
+    <div class="example-container">
+      <div class="example-column">
+        <h2>To Do</h2>
+        <div cdkDropList [cdkDropListData]="NOTDONE" class="example-list" (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let task of NOTDONE" class="example-box" cdkDrag>
+            <div class="task-description">{{ task.description }}</div>
+          </div>
+        </div>
+      </div>
 
-  <div class="example-container">
-    <div class="example-column">
-      <h2>To Do</h2>
-      <div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let item of todo" class="example-box" cdkDrag>{{ item }}</div>
+      <div class="example-column">
+        <h2>In Progress</h2>
+        <div cdkDropList [cdkDropListData]="INPROGRESS" class="example-list" (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let task of INPROGRESS" class="example-box" cdkDrag>
+            <div class="task-description">{{ task.description }}</div>
+          </div>
+        </div>
       </div>
-    </div>
- 
-    <div class="example-column">
-      <h2>In Progress</h2>
-      <div cdkDropList [cdkDropListData]="inProgress" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let item of inProgress" class="example-box" cdkDrag>{{ item }}</div>
-      </div>
-    </div>
-  
-    <div class="example-column">
-      <h2>Done</h2>
-      <div cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div *ngFor="let item of done" class="example-box" cdkDrag>{{ item }}</div>
+
+      <div class="example-column">
+        <h2>Done</h2>
+        <div cdkDropList [cdkDropListData]="DONE" class="example-list" (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let task of DONE" class="example-box" cdkDrag>
+            <div class="task-description">{{ task.description }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
+
+
+
 </div>
 </div>
+
+
+
 <app-footer></app-footer>

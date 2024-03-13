@@ -39,5 +39,11 @@ sprint: any;
       this.getSprints();
     })
   }
+  onRowClicked(row: any) {
+    this.sprintService.getTasksBySprintId(row).subscribe(data => {
+      console.log(data);
+    })
+    
+  }
 
 }

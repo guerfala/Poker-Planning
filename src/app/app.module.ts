@@ -15,7 +15,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { TaskComponent } from './Task/components/task.component';
 import { UpdateTaskComponent } from './Task/update-Task/update-task.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { SprintComponent } from './Sprint/components/sprint.component';
 import { UpdateSprintComponent } from './Sprint/update-Sprint/update-sprint.component';
 import { CreateSprintComponent } from './Sprint/create-sprint/create-sprint.component';
@@ -38,6 +38,8 @@ import { CardComponent } from './card/card.component';
     UpdateSprintComponent,
     CreateSprintComponent,
     
+  
+    
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { CardComponent } from './card/card.component';
     HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+      
   ],
   bootstrap: [AppComponent]
 })
