@@ -1,17 +1,13 @@
-import { HttpClient } from '@angular/common/http'; 
-import { Injectable } from '@angular/core'; 
-import { Observable } from 'rxjs'; 
-  import {Component, OnInit} from '@angular/core';
-  import {
-    CdkDragDrop,
-    CdkDrag,
-    CdkDropList,
-    CdkDropListGroup,
-    moveItemInArray,
-    transferArrayItem,
-  } from '@angular/cdk/drag-drop';
-  import { Task } from '../Task/models/task';
-  import { TaskService } from '../Task/services/task.service';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem
+} from '@angular/cdk/drag-drop';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Task } from '../Task/models/task';
+import { TaskService } from '../Task/services/task.service';
 
   /**
    * @title Drag&Drop connected sorting group
