@@ -43,6 +43,13 @@ export class HeaderComponent  implements OnInit{
     }
   }
 
+  verifRole(id: number | null): boolean{
+    if (localStorage.getItem("role") == "Developpeur")
+      return true;
+    else
+      return false;
+  }
+
 
   
 

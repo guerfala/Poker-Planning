@@ -7,7 +7,7 @@
 </mat-form-field>
 
 <div class="mat-elevation-z8">
-  <mat-card *ngFor="let room of dataSource" class="example-card" [style.backgroundImage]="'url(../../../assets/table.jpg)'">
+  <mat-card *ngFor="let room of dataSource  | slice: (paginator.pageIndex * paginator.pageSize): ((paginator.pageIndex + 1) * paginator.pageSize)" class="example-card" [style.backgroundImage]="'url(../../../assets/table.jpg)'">
     <mat-card-header>
       <mat-card-title class="mat-card-title">{{ room.roomName }}</mat-card-title>
       <mat-card-subtitle class="mat-card-subtitle">"{{ room.startDate | date: 'mediumDate' }}" To "{{ room.endDate | date: 'mediumDate' }}"</mat-card-subtitle>
@@ -18,4 +18,4 @@
     </mat-card-actions>
   </mat-card>
 </div>
-<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+<mat-paginator #paginator [length]="dataSource.length" [pageSize]="3" [pageSizeOptions]="[3, 6, 9]" aria-label="Select page of users"></mat-paginator>

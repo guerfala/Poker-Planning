@@ -9,7 +9,7 @@
 }
 
 .example-card {
-  width: calc(100% - 40px); /* Adjusted width to accommodate the margin */
+  /*width: calc(100% - 40px); /* Adjusted width to accommodate the margin */
   max-width: 400px;
   margin: 10px 20px; /* Add margin on all sides */
   border-radius: 12px;
@@ -19,6 +19,14 @@
   background-color: #fff;
   border: 1px solid #e0e0e0;
   box-sizing: border-box;
+  width: calc(30% - 20px); /* Set the width of each card */
+  margin-bottom: 20px;
+}
+
+.mat-elevation-z8 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute cards evenly across the container */
 }
 
 .example-card:hover {
