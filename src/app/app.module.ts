@@ -21,6 +21,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RoomComponent } from './room/room.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -35,6 +36,8 @@ import { RoomComponent } from './room/room.component';
     TestComponent,
     UpdateUserComponent,
     RoomComponent,
+    UserDetailsComponent
+
 
 
 
@@ -54,6 +57,9 @@ import { RoomComponent } from './room/room.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
+    CommonModule,
+    MatCardModule,
+    MatButtonModule
 
 
 

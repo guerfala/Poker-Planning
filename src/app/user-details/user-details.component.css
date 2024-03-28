@@ -1,20 +1,43 @@
 .example-card {
-  width:  700px;
-  height: 700px;/* Adjust the width as needed */
-  margin: 0 auto; /* Center the card horizontally */
-  padding: 150px; /* Add padding to the card */
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile-image-container {
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.img-profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 p {
-  font-weight: bold; /* Make everything inside <p> tags bold */
+  margin: 5px 0;
+  font-weight: bold;
 }
 
 .not-bold {
-  font-weight: normal; /* Make the variable normal weight */
+  font-weight: normal;
 }
 
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-  
+.mat-card-actions {
+  margin-top: 10px;
+}
+
+.mat-card-actions button {
+  margin-right: 10px;
+}

@@ -44,7 +44,18 @@
                 <span *ngIf="userForm.controls['role'].errors?.['required']">Role is required.</span>
             </div>
         </label>
-      
+        <label>
+            <input type="number" name="skillRate" placeholder="Skill Rate" [(ngModel)]="user.skillRate" min="0" max="100" required class="input">
+            <div *ngIf="userForm.controls['skillRate'].invalid && (userForm.controls['skillRate'].dirty || userForm.controls['skillRate'].touched)" class="error-message">
+                <span *ngIf="userForm.controls['skillRate'].errors?.['required']">Skill Rate is required.</span>
+                <span *ngIf="userForm.controls['skillRate'].errors?.['min']">Skill Rate must be at least 0.</span>
+                <span *ngIf="userForm.controls['skillRate'].errors?.['max']">Skill Rate cannot be more than 100.</span>
+            </div>
+        </label>
+        <!-- Add input for image upload -->
+        <label>
+            <input type="file" name="file" (change)="onFileSelected($event)" accept="image/*" class="input">
+        </label>
         <button type="submit" class="submit">Submit</button>
    
     </form>

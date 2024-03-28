@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { User } from '../Models/user';
 import { UserService } from '../Services/user.service';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
 import { UserAuthService } from '../Services/user-auth.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.css',
-  standalone: true,
-  imports: [MatCardModule, MatButtonModule],
+  styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent {
 
@@ -30,26 +27,15 @@ export class UserDetailsComponent {
     }
   }
 
-
-
-
-
   deleteUser(id: number) {
     this.userServ.DeleteProfil(id).subscribe(() => {
-     
-
       window.location.reload();
       this.authserv.clear();
     });
   }
-  
-  
-  
-    editUser(id: number) {
-      this.router.navigate(['/updateUser', id]);
-    
 
-    }
-
-
+  editUser(id: number) {
+    this.router.navigate(['/updateUser', id]);
+  }
 }
+
